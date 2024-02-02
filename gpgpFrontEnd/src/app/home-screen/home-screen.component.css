@@ -1,0 +1,49 @@
+.mainButtons{
+    height: 800px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+button{
+    height: 80px;
+    width: 270px;
+    font-size: 35px;
+    border-width: 3px;
+    border-radius: 10%;
+}
+
+button:hover{
+    height: 83px;
+    width: 273px;
+}
+
+.normal{
+    background-color: var(--button-color);
+    color: inherit;
+    border-color: var(--border-color);
+}
+
+.normal:hover{
+    background-color: var(--primary-color);
+}
+.normal:active{
+    background-color: var(--hover-color);
+    color:  var(--primary-color);
+    border-color: var(--hover-color);
+}
+
+.special{
+    background-color: var(--primary-color);
+    color: inherit;
+    border-color: var(--border-color);
+}
+
+.special:hover{
+    border-color: var(--hover-color);
+}
+.special:active{
+    background-color: var(--hover-color);
+    color:  var(--primary-color);
+}
+

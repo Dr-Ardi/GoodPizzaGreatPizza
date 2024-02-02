@@ -1,0 +1,6 @@
+header{
+    background-color: var(--primary-color);
+    padding: 10px 5px 10px 5px;
+    border-bottom-width: 3px;
+    border-color: var(--border-color);
+}

@@ -1,0 +1,8 @@
+
+
+.listTag{
+    font-size: var(--headline);
+    color: var(--primary-color);
+    border-bottom: solid 2px var(--primary-color);
+}
+

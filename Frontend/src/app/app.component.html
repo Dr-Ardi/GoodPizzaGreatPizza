@@ -1,12 +1,13 @@
 <main class="main">
 
   <header class="topBar">
+    <a [routerLink]="['/']">
       <img src="/assets/GPGPLogo.png" alt="Good Pizza Great Pizza">
+    </a>
   </header>
   <section>
-    <app-home-screen></app-home-screen>
+    <router-outlet></router-outlet>
   </section>
   
   
 </main>
-

@@ -26,5 +26,10 @@ public class ItemController {
         return itemService.getAllItems();
     }
 
+    @GetMapping(path="types")
+    public List<String> getEachType(){
+        return itemService.getEachType();
+    }
+
    
 }

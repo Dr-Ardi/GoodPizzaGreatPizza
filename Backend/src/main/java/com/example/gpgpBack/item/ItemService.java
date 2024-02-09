@@ -26,7 +26,7 @@ public class ItemService {
 
     public List<String> getEachType(){
         List<String> theTypes = itemRepository.getEachType();
-        String[] products = {"Appetisers", "Fries", "Salad", "Pizza","Burger", "Pasta", "Water", "Soft Dring", "Beer", "Wine"};
+        String[] products = {"Appetiser", "Fries", "Salad", "Pizza","Burger", "Pasta", "Water", "Soft Drink", "Beer", "Wine"};
 
         
         int i=0;

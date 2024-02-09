@@ -7,12 +7,16 @@
     height: calc(var(--button)/2);
     border: solid 10px var(--button-color);
     border-radius: 10%;
+    margin: 15px 20px 15px 20px;
+    box-shadow:5px 10px 20px var(--shadow-color);
 }
 .itemPhoto{
     grid-row: 1 /span 3;
     text-align: center;
-    vertical-align: middle;
-    height: calc(var(--button)/3);
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 10%;
+    max-height:calc(var(--button)/2) ;
     width: calc(var(--button)/3);
 }
 .itemName{
@@ -22,4 +26,10 @@
 .itemPrice, .itemDescription{
     font-size: calc( var(--headline) / calc(1.5*var(--golden-ratio)));
     vertical-align: middle;
+    height: fit-content;
+}
+
+.itemPrice{
+    text-align: right;
+    height: fit-content;
 }

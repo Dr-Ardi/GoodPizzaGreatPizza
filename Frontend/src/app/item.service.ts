@@ -12,20 +12,12 @@ export class ItemService {
 
    url = 'http://localhost:8080/gpgp/items';
 
-  // async getAllItems(): Promise<Item[]> {
-  //   const data = await fetch(this.url);
-  //   return await data.json() ?? [];
-  // }
-
   getAllItems(): Observable<Item[]>{
     return this.http.get<Item[]>(this.url);
   }
   
-
-  // async getItemById(id: bigint): Promise<Item | undefined> {
-  //   const data = await fetch(`${this.url}/${id}`);
-  //   return await data.json() ?? {};
-  // }
-
+  getEachType(): Observable<string[]>{
+    return this.http.get<string[]>(`${this.url}/types`);
+  }
   
 }

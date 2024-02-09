@@ -1,6 +1,21 @@
-<section class="menuList">
-        <div class="listTag">
-            <p>Pizza</p>
+
+<section class="menuScreen">
+
+    
+
+    <div class="menuList">
+        <div *ngFor="let type of types">
+            <div *ngIf="type !== 'Fries'">
+                <div class="listTag" *ngIf="type !== 'Water'">
+                    <p>{{type}}s</p>
+                </div> 
+            </div>
+            <div class="itemList"  >
+                <div *ngFor="let item of itemList">
+                    <app-item-list class="items" [item]="item" [type]="type"></app-item-list>
+                </div>
+            </div>
         </div>
-        <app-item-list></app-item-list>
+    </div>
+
 </section>

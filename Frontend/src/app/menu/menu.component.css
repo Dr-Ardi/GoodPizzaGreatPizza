@@ -1,8 +1,19 @@
+.itemList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
+.items{
+    justify-content: space-evenly;
+}
 
 .listTag{
     font-size: var(--headline);
     color: var(--primary-color);
     border-bottom: solid 2px var(--primary-color);
+    padding-top: 10px ;
+    padding-bottom: 10px ;
+    text-indent: 10px;
 }
 

@@ -1,8 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuItemsComponent } from '../menu-items/menu-items.component';
-import { ItemService } from '../item.service';
-import {Item} from '../item';
+import { Item } from '../item';
 
 @Component({
   selector: 'app-item-list',
@@ -12,18 +11,25 @@ import {Item} from '../item';
   styleUrl: './item-list.component.css'
 })
 export class ItemListComponent {
-  itemList: Item[] = [];
-  itemService: ItemService = inject(ItemService);
 
-  constructor() {
+  
+  @Input() item!: Item;
+  @Input() type!: string;
+
+  ngOnInit(): void{
+    this.checkType();
   }
 
-  ngOnInit(): void {
-    this.getAllItems();
-  }
+  //For simplisity reasons
+  checkType(): any{
+    if (this.item.type == "Fries"){
+      this.item.type = "Appetiser";
+    }
 
-  getAllItems(): any {
-    this.itemService.getAllItems().subscribe(itemList => this.itemList = itemList);
+    if (this.item.type == "Water"){
+      this.item.type = "Soft Drink";
+    }
+      
   }
 
 }

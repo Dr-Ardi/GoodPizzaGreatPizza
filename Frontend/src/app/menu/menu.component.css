@@ -1,33 +1,39 @@
 .menuBar{
-    display: flex;
     width:inherit;
-    justify-content: flex-start;
-    flex-direction: row;
-    border-bottom: solid 3px var(--border-color);
-    overflow-x:scroll;
-    margin-top: 5px;
-}
 
-.menuBar::-webkit-scrollbar {
-    display: none;
-  }
-
-.itemList{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+    flex-direction: row;
+    justify-content: flex-start;
 
-.items{
-    justify-content: space-evenly;
+    border-bottom: solid 3px var(--border-color);
+    margin-top: 5px;
+    overflow-x:scroll;
+}
+.menuBar::-webkit-scrollbar{
+    display: none;
 }
 
 .listTag{
     font-size: var(--headline);
     color: var(--primary-color);
-    border-bottom: solid 2px var(--primary-color);
-    padding-top: 10px ;
-    padding-bottom: 10px ;
     text-indent: 10px;
+    
+    padding: 10px 0px 10px 0px ;
+    border-bottom: solid 2px var(--primary-color);
 }
+
+.listPerType{
+    display: flex;
+    width: auto;
+    align-items: center;
+}
+
+.itemList{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: auto;
+}
+
+
 

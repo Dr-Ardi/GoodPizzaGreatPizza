@@ -16,10 +16,13 @@ export class MenuItemsComponent {
   photoSrc!: string;
   
   @Input() item!: Item;
+  @Input() type!: string;
 
   ngOnInit(): void{
     this.setPhotoSrc();
+    this.checkType();
   }
+
 
   setPhotoSrc(): any{
     this.photoSrc = `${this.ImageUrl}/${this.item.type}`;
@@ -30,5 +33,18 @@ export class MenuItemsComponent {
     if(this.item.name == "Water")
       this.photoSrc = `${this.ImageUrl}/Water`;
   }
+
+  //For simplisity reasons
+  checkType(): any{
+    if (this.item.type == "Fries"){
+      this.item.type = "Appetiser";
+    }
+
+    if (this.item.type == "Water"){
+      this.item.type = "Soft Drink";
+    }
+      
+  }
+
   
 }

@@ -10,6 +10,4 @@ import { RouterModule } from '@angular/router';
   templateUrl:'./home-screen.component.html',
   styleUrl: './home-screen.component.css'
 })
-export class HomeScreenComponent {
-
-}
+export class HomeScreenComponent {}

@@ -1,11 +1,14 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-menu-bar',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   template: `
-        <button class="tagButton" (click)="scrollToSection(type)">{{type}}</button>
+      <section *ngIf="type !== 'Water' && type !=='Fries'">
+          <button class="tagButton" (click)="scrollToSection(type)">{{type}}</button>
+      </section>
   `,
   styleUrl: './menu-bar.component.css'
 })

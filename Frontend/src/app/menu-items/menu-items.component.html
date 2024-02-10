@@ -1,8 +1,6 @@
-<div >
-        <section class="menuItemList" >
-                <img class="itemPhoto" [src]="this.photoSrc" alt="{{item.name}}">
-                <p class="itemName">{{ item.name }}</p>
-                <p class="itemDescription"> desc {{item.type}} </p>
-                <p class="itemPrice">{{ item.price }} $</p>
-        </section>
-</div>
+<section class="menuItemList" *ngIf="item.type === this.type">
+        <img class="itemPhoto" [src]="this.photoSrc" alt="{{item.name}}">
+        <p class="itemName">{{ item.name }}</p>
+        <p class="itemDescription"> desc {{item.type}} </p>
+        <p class="itemPrice">{{ item.price }} $</p>
+</section>

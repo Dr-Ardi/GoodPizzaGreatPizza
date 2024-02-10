@@ -1,47 +1,51 @@
 * {
     margin: 0;
     padding: 0;
-  }
+}
+
+:root {
+  --background-color: #242e49;
+  --primary-color: #b6192c;
+  --button-color: #384358;
+  --shadow-color: #171c2f;
+  --border-color: #54192d;
+  --hover-color: #ffa586;
+
+  --headline: 45px;
+  --golden-ratio: 1.618;
+  --button: 350px;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track-piece{
+  background: var(--shadow-color); 
+}
+
+::-webkit-scrollbar-track {
+  background: var(--hover-color); 
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color); 
+  height: 300px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color); 
+  cursor: grab;
+}
   
-  body {
-    font-family: 'Be Vietnam Pro', sans-serif;
-    background-color:var(--background-color);
-    color:rgb(240, 255, 255);
-  }
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  background-color:var(--background-color);
+  color:rgb(240, 255, 255);
+} 
 
-  :root {
-    --background-color: #242e49;
-    --primary-color: #b6192c;
-    --button-color: #384358;
-    --shadow-color: #171c2f;
-    --border-color: #54192d;
-    --hover-color: #ffa586;
-
-    --headline: 45px;
-    --golden-ratio: 1.618;
-    --button: 350px;
-  }
-
-  ::-webkit-scrollbar {
-    width: 15px;
-  }
   
-  ::-webkit-scrollbar-track {
-    background: var(--hover-color); 
-  }
 
-  ::-webkit-scrollbar-track-piece{
-    background: var(--shadow-color); 
-  }
-   
-  ::-webkit-scrollbar-thumb {
-    background: var(--border-color); 
-    height: 300px;
-  }
   
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-color); 
-    cursor: grab;
-  }
 
     

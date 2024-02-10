@@ -7,16 +7,15 @@
 
     <div class="menuList">
         <div *ngFor="let type of types">
-            <div *ngIf="type !== 'Fries'">
-                <div class="listTag" *ngIf="type !== 'Water'">
-                    <p id="{{type}}">{{type}}s</p>
-                </div> 
+
+            <div class="listTag" *ngIf="type !== 'Water' && type !=='Fries'">
+                <p id="{{type}}">{{type}}s</p>
+            </div> 
+
+            <div class="listPerType">
+                <app-item-list class="itemList" [type]="type"></app-item-list>
             </div>
-            <div class="itemList"  >
-                <div *ngFor="let item of itemList">
-                    <app-item-list class="items" [item]="item" [type]="type"></app-item-list>
-                </div>
-            </div>
+
         </div>
     </div>
 

@@ -1,0 +1,17 @@
+.tagButton{
+    background-color: inherit;
+    color: var(--border-color);
+    font-size: calc(var(--headline)/var(--golden-ratio));
+    border: 0;
+    border-right: solid 1px var(--border-color);
+    border-left: solid 1px var(--border-color);
+    margin-bottom: 5px;
+    padding: 0px 20px 0px 20px;
+    text-wrap:nowrap;
+    text-align: center;
+}
+
+.tagButton:hover{
+    color: var(--hover-color);
+    cursor: pointer;
+}

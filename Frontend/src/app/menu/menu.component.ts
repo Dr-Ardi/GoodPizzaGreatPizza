@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ItemListComponent } from '../item-list/item-list.component';
 import { Item } from '../item';
 import { ItemService } from '../item.service';
-// import { MenuItemsComponent } from '../menu-items/menu-items.component';
+import { MenuBarComponent } from '../menu-bar/menu-bar.component';
+
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [CommonModule, ItemListComponent],
+  imports: [CommonModule, ItemListComponent, MenuBarComponent],
   templateUrl:'./menu.component.html',
   styleUrl: './menu.component.css'
 })

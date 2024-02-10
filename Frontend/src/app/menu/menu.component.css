@@ -1,3 +1,17 @@
+.menuBar{
+    display: flex;
+    width:inherit;
+    justify-content: flex-start;
+    flex-direction: row;
+    border-bottom: solid 3px var(--border-color);
+    overflow-x:scroll;
+    margin-top: 5px;
+}
+
+.menuBar::-webkit-scrollbar {
+    display: none;
+  }
+
 .itemList{
     display: flex;
     flex-wrap: wrap;

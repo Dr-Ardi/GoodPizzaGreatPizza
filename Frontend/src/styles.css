@@ -44,7 +44,33 @@ body {
   color:rgb(240, 255, 255);
 } 
 
-  
+
+
+
+:root{
+  --menu-multi: calc(1650/411);;
+}
+
+@media (max-width: 1670px){
+  :root {
+    --menu-multi: calc(1235/411);
+  }
+}
+
+@media (max-width: 1260px){
+  :root {
+    --menu-multi: calc(822/411);
+  }
+}
+
+@media (max-width: 830px){
+  :root {
+    --menu-multi: 1;
+  }
+}
+
+
+
 
   
 

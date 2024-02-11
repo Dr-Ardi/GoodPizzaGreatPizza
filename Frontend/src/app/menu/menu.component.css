@@ -2,7 +2,6 @@
     width:inherit;
 
     display: flex;
-    flex-direction: row;
     justify-content: flex-start;
 
     border-bottom: solid 3px var(--border-color);
@@ -24,16 +23,13 @@
 
 .listPerType{
     display: flex;
-    width: auto;
-    align-items: center;
+    justify-content: center;
 }
+
 
 .itemList{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: auto;
+    width:calc(var(--menu-multi)*411px);
 }
-
-
-

@@ -4,3 +4,7 @@ header{
     border-bottom-width: 3px;
     border-color: var(--border-color);
 }
+
+.logo{
+    height: 60px
+}

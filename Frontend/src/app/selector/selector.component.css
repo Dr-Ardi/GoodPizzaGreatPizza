@@ -1,0 +1,27 @@
+.selectors{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    column-gap: 100px;
+}
+
+#selector{
+    min-width: 120px;
+    width: max-content;
+    height: 30px;
+    background-color: var(--button-color);
+    border-color: var(--border-color);
+    margin: 10px;
+    color: aliceblue;
+}
+
+option{
+    color: aliceblue;
+    width: 120px;
+    height: 30px;
+}
+
+p{
+    text-align: right;
+    margin-right: 30px;
+}

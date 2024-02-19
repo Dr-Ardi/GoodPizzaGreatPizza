@@ -1,8 +1,8 @@
 import { Component, Input, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuItemsComponent } from '../menu-items/menu-items.component';
-import { Item } from '../item';
-import { ItemService } from '../item.service';
+import { Item } from '../../item/item';
+import { ItemService } from '../../item/item.service';
 
 @Component({
   selector: 'app-item-list',

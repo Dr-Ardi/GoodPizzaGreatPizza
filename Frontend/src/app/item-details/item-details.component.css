@@ -1,0 +1,55 @@
+.title, .imaging, .end{
+    display: flex;
+}
+
+.title{
+    justify-content: center;
+    margin-top: 10px;
+}
+.titleText{
+    font-size: calc(var(--headline)/var(--golden-ratio));
+    width: fit-content;
+    border-bottom: solid 1px white;
+}
+
+.imaging{
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 20px 0px 20px 0px;
+}
+.photo{
+    width: 200px;
+    height: auto;
+    max-height: 250px;
+    margin: 0px 5px 0px 15px;
+    border: solid 3px var(--border-color);
+    border-radius: 20%;
+}
+.desc{
+    height: 120px;
+    max-width: 300px;
+    min-width: 250px;
+    margin-left: 5px;
+    text-align: start;
+    text-wrap: wrap;
+}
+
+.end{
+    min-height: 200px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.end > button{
+    width: 150px;
+    height: 50px;
+    font-size:calc(var(--headline)/(1.5*var(--golden-ratio))) ;
+    border: solid 3px var(--border-color);
+}
+
+.adder{
+    background-color:var(--primary-color) ;
+}
+
+.checker{
+    background-color:var(--button-color) ;
+}

@@ -16,10 +16,17 @@
 
 }
 
+a{
+    color: inherit;
+    text-decoration: none;
+    cursor: inherit;
+}
+
 .itemPhoto{
     grid-row: 1 /span 3;
     
-    max-height:calc(var(--button)/2) ;
+    height:auto;
+    max-height:160px;
     width: calc(var(--button)/3);
     
     border-radius: 10%;

@@ -9,7 +9,7 @@
     border-right: solid 1px var(--border-color);
     border-left: solid 1px var(--border-color);
     
-    margin-bottom: 5px;
+    margin: 5px 0px 5px 0px;
     padding: 0px 20px 0px 20px;
 }
 .tagButton:hover{

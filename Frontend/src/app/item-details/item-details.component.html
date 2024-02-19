@@ -1,0 +1,21 @@
+<section class="details">
+    
+    <div class="title">
+        <p class="titleText">{{ item.name }}</p>
+    </div>
+
+    <div class="imaging">
+        <app-photo class="photo" [item]="item"></app-photo>
+        <div class="desc">
+            <app-desc  [item]="item">
+            </app-desc>
+        </div>
+    </div>
+
+    <app-selector [item]="item"></app-selector>
+
+    <div class="end">
+        <button class="adder">Add to Order</button>
+        <button class="checker">Check Order</button>
+    </div>
+</section>

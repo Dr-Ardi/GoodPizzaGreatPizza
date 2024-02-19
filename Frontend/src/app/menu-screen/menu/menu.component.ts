@@ -1,7 +1,7 @@
 import { Component, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ItemListComponent } from '../item-list/item-list.component';
-import { ItemService } from '../item.service';
+import { ItemService } from '../../item/item.service';
 import { MenuBarComponent } from '../menu-bar/menu-bar.component';
 
 

@@ -15,13 +15,26 @@ public class IngredService {
         this.ingredRepository = ingredRepository;
         
     }
-    
-    public List<Ingredient> getAllItems(){
-        return ingredRepository.findAll();
-    }
 
     public List<String> findIngreItemsById(Long item_Id){
         return ingredRepository.findIngreItemsById(item_Id);
+    }
+
+    public List<String> getDescription(Long item_Id) {
+
+        List<String> ingredient = ingredRepository.findIngreItemsById(item_Id);
+
+        String ingredients = ingredient.toString();
+
+        String description = ingredients.substring(1, (ingredients.length()-1));
+
+        ingredients = description.substring((description.lastIndexOf(',')+1), description.length() );
+
+        description = (description.substring(0, description.lastIndexOf(',')) + " and" + ingredients); 
+
+        description = (" with " + description + ".").toLowerCase();
+
+        return List.of(description);
     } 
     
 

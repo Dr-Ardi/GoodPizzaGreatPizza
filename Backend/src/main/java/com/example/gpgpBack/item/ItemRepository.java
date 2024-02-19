@@ -11,5 +11,8 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     
     @Query("SELECT DISTINCT i.type FROM Item i")
     List<String> getEachType();
+
+    @Query("SELECT i FROM Item i WHERE i.id=?1")
+    Item getItemById(Long id);
    
 }

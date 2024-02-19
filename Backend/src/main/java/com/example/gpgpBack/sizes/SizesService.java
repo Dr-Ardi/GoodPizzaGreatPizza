@@ -16,12 +16,6 @@ public class SizesService {
     public SizesService(SizesRepository sizesRepository) {
         this.sizesRepository = sizesRepository;
     }
-    
-    
-
-    public List<Sizes> getAllSizes(){
-        return sizesRepository.findAll();
-    }
 
     public List<String> findSizes(String item_Type){
         return sizesRepository.findSizes(item_Type);

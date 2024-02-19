@@ -21,12 +21,6 @@ public class SizesController {
     public SizesController(SizesService sizesService) {
         this.sizesService = sizesService;
     }
-    
-
-    @GetMapping
-    public List<Sizes> getAllSizes(){
-        return sizesService.getAllSizes();
-    }
 
     @GetMapping(path = "{item_Type}")
     public List<String> findIngreItemsById(@PathVariable("item_Type") String item_Type){

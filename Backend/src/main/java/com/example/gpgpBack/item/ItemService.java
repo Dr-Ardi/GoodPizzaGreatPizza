@@ -48,6 +48,12 @@ public class ItemService {
         return theTypes;
     }
 
+
+
+    public Item getItemById(Long id) {
+        return itemRepository.getItemById(id);
+    }
+
    
 }
 

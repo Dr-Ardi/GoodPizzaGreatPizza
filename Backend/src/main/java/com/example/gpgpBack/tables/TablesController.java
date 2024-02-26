@@ -26,9 +26,9 @@ public class TablesController {
         return tablesService.getAllItems();
     }
 
-    @GetMapping(path = "{occupied}")
-    public List<Long> getAvailableTables(@PathVariable("occupied") boolean occupied){
-        return tablesService.getAvailableTables(occupied);
+    @GetMapping(path = "free")
+    public List<Long> getAvailableTables(){
+        return tablesService.getAvailableTables(false);
     }  
 
     @PutMapping(path = "{table_Number}")

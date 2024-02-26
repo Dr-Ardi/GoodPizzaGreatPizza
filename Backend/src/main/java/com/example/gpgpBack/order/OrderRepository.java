@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long>{
     
-    @Query("SELECT o FROM Order o WHERE table_Number = ?1")
+    @Query("SELECT o FROM Order o WHERE table_Number = ?1 ORDER BY o.priority ASC")
     List<Order> getTableOrders(Long table_Number);
 
 }

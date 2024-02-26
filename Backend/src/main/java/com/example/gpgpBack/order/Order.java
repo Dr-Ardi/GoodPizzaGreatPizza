@@ -26,6 +26,7 @@ public class Order {
     private int priority;
     private String item_Name;
     private String extra;
+    private String included;
     private String excluded;
     private int quantity;
     private boolean ordered;
@@ -34,11 +35,12 @@ public class Order {
     public Order() {
     }
 
-    public Order(Long table_Number, int priority, String item_Name, String extra, String excluded, int quantity, boolean ordered, double order_Cost) {
+    public Order(Long table_Number, int priority, String item_Name, String extra, String included, String excluded, int quantity, boolean ordered, double order_Cost) {
         this.table_Number = table_Number;
         this.priority = priority;
         this.item_Name = item_Name;
         this.extra = extra;
+        this.included = included;
         this.excluded = excluded;
         this.quantity = quantity;
         this.ordered = ordered;
@@ -113,6 +115,16 @@ public class Order {
     public void setOrder_Cost(double order_Cost) {
         this.order_Cost = order_Cost;
     }
+
+
+    public String getIncluded() {
+        return this.included;
+    }
+
+    public void setIncluded(String included) {
+        this.included = included;
+    }
+
 
     
 }

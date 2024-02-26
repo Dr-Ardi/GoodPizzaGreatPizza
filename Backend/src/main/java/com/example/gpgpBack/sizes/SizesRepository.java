@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SizesRepository extends JpaRepository<Sizes, Long> {
-    @Query("SELECT s.item_Size, s.added_Cost FROM Sizes s WHERE item_Type = ?1")
-    List<String> findSizes(String item_Type);
+    @Query("SELECT DISTINCT s FROM Sizes s WHERE item_Type = ?1")
+    List<Sizes> findSizes(String item_Type);
 }

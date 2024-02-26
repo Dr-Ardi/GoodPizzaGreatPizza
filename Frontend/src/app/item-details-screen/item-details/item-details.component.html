@@ -1,4 +1,6 @@
 <section class="details">
+
+    <app-back></app-back>
     
     <div class="title">
         <p class="titleText">{{ item.name }}</p>
@@ -12,10 +14,10 @@
         </div>
     </div>
 
-    <app-selector [item]="item"></app-selector>
+    <app-details [item]="item"></app-details>
 
     <div class="end">
-        <button class="adder">Add to Order</button>
-        <button class="checker">Check Order</button>
+        <button class="adder" (click)="addToOrder()">Add to Order</button>
+        <button class="checker"[routerLink]="['/order']" >Check Order</button>
     </div>
 </section>

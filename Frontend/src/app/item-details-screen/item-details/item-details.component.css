@@ -2,6 +2,10 @@
     display: flex;
 }
 
+*{
+    color: aliceblue;
+}
+
 .title{
     justify-content: center;
     margin-top: 10px;

@@ -1,9 +1,11 @@
 
 <section class="menuScreen">
 
-    <div class="menuBar">
-        <app-menu-bar *ngFor="let type of types" [type]="type"></app-menu-bar>
+    <div class="menuBar" >
+    <app-menu-bar *ngFor="let type of types" [type]="type"></app-menu-bar>
     </div>
+
+    <app-back id="back"></app-back>
 
     <div class="menuList">
         <div *ngFor="let type of types">

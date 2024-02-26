@@ -7,12 +7,16 @@
     display: flex;
     justify-content: flex-start;
 
-    border-bottom: solid 3px var(--border-color);
+    border-bottom: solid 3px var(--hover-color);
     margin-top: 5px;
     overflow-x:scroll;
 }
 .menuBar::-webkit-scrollbar{
     display: none;
+}
+
+#back{
+    top:45px;
 }
 
 .listTag{

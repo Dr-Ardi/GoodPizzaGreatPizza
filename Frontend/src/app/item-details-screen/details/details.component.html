@@ -1,0 +1,6 @@
+<app-selector [item]="item" [added]="added" [finalPrice]="finalPrice" (sendPrice)="inputPrice($event)">
+</app-selector>
+
+<app-comments></app-comments>
+
+<p id="price">Final Price: {{this.finalPrice}} $</p>

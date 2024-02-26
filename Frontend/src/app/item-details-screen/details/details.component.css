@@ -1,0 +1,47 @@
+.selectors{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    column-gap: 100px;
+}
+ 
+#selector{
+    width: 135px;
+    padding: 5px;
+    height: 30px;
+    background-color: var(--button-color);
+    border-color: var(--border-color);
+    margin: 10px;
+}
+
+#price{
+    text-align: right;
+    margin-right: 30px;
+}
+
+#add{
+    display: flex;
+    height: 30px;
+    width: 135px;
+    background-color: transparent;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+#quantity{
+    font-size: 20px;
+}
+
+.adders{
+    background-color: var(--button-color);
+    border-radius: 50%;
+    border: solid 1px var(--border-color);
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+}
+
+
+button:hover{
+    cursor: pointer;
+}

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { Item } from '../item/item';
+import { Item } from '../../variables/item/item';
 import { CommonModule } from '@angular/common';
 import { PhotoService } from './photo.service';
 

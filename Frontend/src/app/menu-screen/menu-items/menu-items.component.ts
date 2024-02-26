@@ -1,10 +1,10 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import { Item } from '../../item/item';
+import { Item } from '../../variables/item/item';
 import { CommonModule } from '@angular/common';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { IngredientService } from '../../ingredient.service';
-import { PhotoComponent } from '../../photo/photo.component';
-import { DescComponent } from '../../desc.component';
+import { IngredientService } from '../../variables/ingredient.service';
+import { PhotoComponent } from '../../tools/photo/photo.component';
+import { DescComponent } from '../../tools/desc.component';
 
 
 @Component({

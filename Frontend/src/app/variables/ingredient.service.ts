@@ -15,7 +15,7 @@ export class IngredientService {
     return this.http.get<string>(`${this.url}/desc/${id}`);
   }
 
-  findIngredientsById(id: number): Observable<string>{
-    return this.http.get<string>(`${this.url}/${id}`);
+  findIngredientsById(id: number): Observable<string[]>{
+    return this.http.get<string[]>(`${this.url}/${id}`);
   }
 }

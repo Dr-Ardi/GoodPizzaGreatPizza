@@ -14,6 +14,8 @@
   --headline: 45px;
   --golden-ratio: 1.618;
   --button: 350px;
+
+  --menu-multi: calc(1650/411);;
 }
 
 ::-webkit-scrollbar {
@@ -47,9 +49,7 @@ body {
 
 
 
-:root{
-  --menu-multi: calc(1650/411);;
-}
+
 
 @media (max-width: 1670px){
   :root {
@@ -61,11 +61,15 @@ body {
   :root {
     --menu-multi: calc(822/411);
   }
+  
 }
 
 @media (max-width: 830px){
   :root {
     --menu-multi: 1;
+  }
+  ::-webkit-scrollbar {
+    width: 0px;
   }
 }
 

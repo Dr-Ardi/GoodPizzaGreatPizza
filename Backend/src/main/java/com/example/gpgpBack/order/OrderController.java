@@ -24,15 +24,10 @@ public class OrderController {
     public OrderController(OrderService orderService) {
         this.orderService = orderService;
     }
-    
-
-    @GetMapping
-    public List<Order> getAllOrders(){
-        return orderService.getAllOrders();
-    }
 
     @PostMapping
     public void addToOrder(@RequestBody Order order){
+        System.out.println(order);
         orderService.addToOrder(order);
     }
 

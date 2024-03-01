@@ -8,12 +8,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TablesRepository extends JpaRepository<Tables, Long>{
-    @Query("SELECT t.table_Number FROM Tables t WHERE occupied = ?1")
+    @Query("SELECT t.table_Number FROM Tables t WHERE t.occupied = ?1 ORDER BY t.table_Number ASC")
     List<Long> getAvailableTables(boolean occupied);
 
-    @Query("SELECT t.occupied FROM Tables t WHERE table_Number = ?1")
+    @Query("SELECT t.occupied FROM Tables t WHERE t.table_Number = ?1")
     boolean isWaiterCalled(Long table_Number);
 
-    @Query("SELECT t.finished FROM Tables t WHERE table_Number = ?1")
+    @Query("SELECT t.finished FROM Tables t WHERE t.table_Number = ?1")
     boolean isTableFinished(Long table_Number);
 }

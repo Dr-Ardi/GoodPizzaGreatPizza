@@ -18,6 +18,24 @@ public class SizesService {
     }
 
     public List<Sizes> findSizes(String item_Type){
-        return sizesRepository.findSizes(item_Type);
+
+        List<Sizes> defaultSizes = List.of(
+            new Sizes(item_Type, "Not Found", 0.0)
+        );
+
+        try{
+
+            String type = sizesRepository.checkSize(item_Type);
+            if(type != null)
+                return sizesRepository.findSizes(item_Type);
+            else
+                System.out.println("Size not Found");
+
+        }
+        catch(Exception e){
+            System.out.println("Exception: " + e);
+        }
+
+        return defaultSizes;
     } 
 }

@@ -27,9 +27,14 @@ public class ItemController {
         return itemService.getAllItems();
     }
 
-    @GetMapping(path="{id}")
+    @GetMapping(path="id/{id}")
     public Item getItemById(@PathVariable("id") Long id){
         return itemService.getItemById(id);
+    }
+
+    @GetMapping(path="name/{name}")
+    public Item getItemByName(@PathVariable("name") String name){
+        return itemService.getItemByName(name);
     }
 
     @GetMapping(path="types")

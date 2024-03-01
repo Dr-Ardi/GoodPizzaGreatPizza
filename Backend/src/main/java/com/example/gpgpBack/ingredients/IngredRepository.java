@@ -8,7 +8,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IngredRepository extends JpaRepository<Ingredient, Long>  {
-    @Query("SELECT i.ingredient_Name FROM Ingredient i WHERE item_Id = ?1")
+
+    @Query("SELECT i.item_Id FROM Ingredient i WHERE i.item_Id = ?1")
+    Long checkId(Long item_Id);
+
+    @Query("SELECT i.ingredient_Name FROM Ingredient i WHERE i.item_Id = ?1")
     List<String> findIngreItemsById(Long item_Id);
 
 }

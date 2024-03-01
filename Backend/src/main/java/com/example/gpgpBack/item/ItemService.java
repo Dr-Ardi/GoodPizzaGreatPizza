@@ -51,18 +51,47 @@ public class ItemService {
 
 
     public Item getItemById(Long id) {
-        return itemRepository.getItemById(id);
+
+        Item defaultItem = new Item( null, "type", "name", 0, 0.0);
+
+        try{
+
+            Long idCheck = itemRepository.checkId(id);
+
+            if(idCheck != null)
+                return itemRepository.getItemById(id);
+            else
+                System.out.println("Not Found");
+
+        }
+        catch(Exception e){
+            System.out.println("Exception: " + e);
+        }
+
+        return defaultItem;
+
+    }
+
+    public Item getItemByName(String name) {
+
+        Item defaultItem = new Item( null, "type", "name", 0, 0.0);
+
+        try{
+
+            String nameCheck = itemRepository.checkName(name);
+
+            if(nameCheck != null)
+                return itemRepository.getItemByName(name);
+            else
+                System.out.println("Not Found");
+
+        }
+        catch(Exception e){
+            System.out.println("Exception: " + e);
+        }
+
+        return defaultItem;
     }
 
    
 }
-
-
-// theTypes.
-            // theTypes.forEach(theType -> {
-            //     if(products[j].equals(theType)){
-            //         String temp = theTypes.get(j);
-            //         theTypes.set((j), theType);
-            //         theTypes.set(theTypes.indexOf(theType), temp);
-            //     }
-            // });

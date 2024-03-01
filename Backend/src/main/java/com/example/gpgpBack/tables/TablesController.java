@@ -31,12 +31,12 @@ public class TablesController {
         return tablesService.getAvailableTables(false);
     }  
 
-    @PutMapping(path = "{table_Number}")
+    @PutMapping(path = "waiter/{table_Number}")
     public void callWaiter(@PathVariable("table_Number") Long table_Number){
         tablesService.callWaiter(table_Number);
     }
 
-    @PutMapping(path = "{table_Number}new")
+    @PutMapping(path = "{table_Number}")
     public void haveFinished(@PathVariable("table_Number") Long table_Number){
         tablesService.haveFinished(table_Number);
     }

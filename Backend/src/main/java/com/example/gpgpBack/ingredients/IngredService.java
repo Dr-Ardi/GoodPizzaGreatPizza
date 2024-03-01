@@ -22,7 +22,20 @@ public class IngredService {
     }
 
     public List<String> findIngreItemsById(Long item_Id){
-        return ingredRepository.findIngreItemsById(item_Id);
+        
+        List<String> defaultVal = List.of("None");
+
+        try{
+            Long id = ingredRepository.checkId(item_Id);
+            if (id != null)
+                return ingredRepository.findIngreItemsById(item_Id);
+            else
+                System.out.println("Id " + id + " not found.");
+        }
+        catch(Exception e){
+            System.out.println("Exception: " + e);
+        }
+        return defaultVal;
     }
 
     public List<String> getDescription(Long item_Id) {

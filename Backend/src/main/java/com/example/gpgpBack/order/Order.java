@@ -31,11 +31,12 @@ public class Order {
     private int quantity;
     private boolean ordered;
     private double order_Cost;
+    private String size;
 
     public Order() {
     }
 
-    public Order(Long table_Number, int priority, String item_Name, String extra, String included, String excluded, int quantity, boolean ordered, double order_Cost) {
+    public Order(Long table_Number, int priority, String item_Name, String extra, String included, String excluded, int quantity, boolean ordered, double order_Cost, String size) {
         this.table_Number = table_Number;
         this.priority = priority;
         this.item_Name = item_Name;
@@ -45,6 +46,7 @@ public class Order {
         this.quantity = quantity;
         this.ordered = ordered;
         this.order_Cost = order_Cost;
+        this.size = size;
     }
 
 
@@ -123,6 +125,15 @@ public class Order {
 
     public void setIncluded(String included) {
         this.included = included;
+    }
+
+
+    public String getSize() {
+        return this.size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
     }
 
 

@@ -16,18 +16,33 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
     
-    
+    public List<Order> getTableOrders(Long table_Number){
+        
+        List<Order> noTable = List.of(
+            new Order(null, 0, "Table Not Found",
+                "", "", "", 0, false, 0.0, "")
+        );
 
-    public List<Order> getAllOrders(){
-        return orderRepository.findAll();
+        try{
+
+            Long table = orderRepository.checkTable(table_Number);
+            
+            if (table != null)
+                return orderRepository.getTableOrders(table_Number);
+            else
+                System.out.println("Table Not Found");
+
+        }
+        catch(Exception e){
+            System.out.println("Exception: " + e);
+        }
+
+        return noTable;
     }
 
     public void addToOrder(Order order){
+        System.out.println(order);
         orderRepository.save(order);
-    }
-
-    public List<Order> getTableOrders(Long table_Number){
-        return orderRepository.getTableOrders(table_Number);
     }
 
     @Transactional

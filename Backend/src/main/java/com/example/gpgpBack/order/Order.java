@@ -22,7 +22,8 @@ public class Order {
         generator = "order_seq"
     )
     
-    private Long table_Number;
+    private Long id;
+    private int table_Number;
     private int priority;
     private String item_Name;
     private String extra;
@@ -36,7 +37,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(Long table_Number, int priority, String item_Name, String extra, String included, String excluded, int quantity, boolean ordered, double order_Cost, String size) {
+    public Order(Long id, int table_Number, int priority, String item_Name, String extra, String included, String excluded, int quantity, boolean ordered, double order_Cost, String size) {
         this.table_Number = table_Number;
         this.priority = priority;
         this.item_Name = item_Name;
@@ -50,11 +51,19 @@ public class Order {
     }
 
 
-    public Long getTable_Number() {
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getTable_Number() {
         return this.table_Number;
     }
 
-    public void setTable_Number(Long table_Number) {
+    public void setTable_Number(int table_Number) {
         this.table_Number = table_Number;
     }
 

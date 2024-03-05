@@ -20,7 +20,7 @@ public class SizesService {
     public List<Sizes> findSizes(String item_Type){
 
         List<Sizes> defaultSizes = List.of(
-            new Sizes(item_Type, "Not Found", 0.0)
+            new Sizes(null, item_Type, "Not Found", 0.0)
         );
 
         try{

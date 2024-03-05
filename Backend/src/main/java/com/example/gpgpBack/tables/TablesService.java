@@ -48,4 +48,14 @@ public class TablesService {
             table.setFinished(true);
         
     }
+
+    @Transactional
+    public void changePaymentMethod(Long table_Number, String payment){
+        
+        Tables table = tablesRepository.findById(table_Number).orElseThrow(() -> new IllegalStateException("Doesnt Exist"));
+        
+        if(payment != null)
+            table.setPayment(payment);
+        
+    }
 }

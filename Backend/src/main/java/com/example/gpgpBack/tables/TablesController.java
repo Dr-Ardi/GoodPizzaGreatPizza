@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -39,6 +40,12 @@ public class TablesController {
     @PutMapping(path = "{table_Number}")
     public void haveFinished(@PathVariable("table_Number") Long table_Number){
         tablesService.haveFinished(table_Number);
+    }
+
+    @PutMapping(path = "/payment/{table_Number}")
+    public void changePaymentMethod(@PathVariable("table_Number") Long table_Number,
+                                    @RequestParam(required = false) String payment){
+        tablesService.changePaymentMethod(table_Number, payment);
     }
     
 }

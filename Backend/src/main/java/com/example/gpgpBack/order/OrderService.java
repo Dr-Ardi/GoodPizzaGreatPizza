@@ -19,7 +19,7 @@ public class OrderService {
     public List<Order> getTableOrders(Long table_Number){
         
         List<Order> noTable = List.of(
-            new Order(null, 0, "Table Not Found",
+            new Order(null, 0, 0, "Table Not Found",
                 "", "", "", 0, false, 0.0, "")
         );
 
@@ -56,5 +56,26 @@ public class OrderService {
         }); 
 
 
+    }
+
+    public double getFinalPrice(Long table_Number){
+
+        double defaultFinal = 0.0;
+
+        try{
+
+            Long tableCheck = orderRepository.checkTable(table_Number);
+
+            if (tableCheck != null)
+                return orderRepository.getFinalPrice(table_Number);
+            else
+                System.out.println("Table doesn't exist");
+        }
+        catch(Exception e){
+            System.out.println("Exception: " + e);
+        }
+
+
+        return defaultFinal;
     }
 }

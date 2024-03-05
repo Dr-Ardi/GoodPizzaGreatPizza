@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TablesRepository extends JpaRepository<Tables, Long>{
+
     @Query("SELECT t.table_Number FROM Tables t WHERE t.occupied = ?1 ORDER BY t.table_Number ASC")
     List<Long> getAvailableTables(boolean occupied);
 

@@ -15,4 +15,6 @@ public interface OrderRepository extends JpaRepository<Order, Long>{
     @Query("SELECT o FROM Order o WHERE o.table_Number = ?1 ORDER BY o.priority ASC")
     List<Order> getTableOrders(Long table_Number);
     
+    @Query("SELECT SUM(o.order_Cost) FROM Order o WHERE o.table_Number = ?1")
+    double getFinalPrice(Long table_Number);
 }

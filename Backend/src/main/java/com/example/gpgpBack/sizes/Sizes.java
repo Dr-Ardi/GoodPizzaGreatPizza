@@ -11,8 +11,7 @@ import jakarta.persistence.Table;
 @Table(name = "sizes")
 public class Sizes {
     
-
-     @Id
+    @Id
     @SequenceGenerator(
             name = "sizes_seq",
             sequenceName = "sizes_seq",
@@ -23,6 +22,7 @@ public class Sizes {
             generator = "sizes_seq"
     )
 
+    private Long id;
     private String item_Type;
     private String item_Size;
     private double added_Cost;
@@ -31,34 +31,45 @@ public class Sizes {
     public Sizes() {
     }
 
-    public Sizes(String item_Type, String item_Size, double added_Cost) {
+    public Sizes(Long id, String item_Type, String item_Size, double added_Cost) {
+        this.id = id;
         this.item_Type = item_Type;
         this.item_Size = item_Size;
         this.added_Cost = added_Cost;
     }
 
-    public String getItemType() {
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getItem_Type() {
         return this.item_Type;
     }
 
-    public void setItemType(String item_Type) {
+    public void setItem_Type(String item_Type) {
         this.item_Type = item_Type;
     }
 
-    public String getItemSize() {
+    public String getItem_Size() {
         return this.item_Size;
     }
 
-    public void setItemSize(String item_Size) {
+    public void setItem_Size(String item_Size) {
         this.item_Size = item_Size;
     }
 
-    public double getAddedCost() {
+    public double getAdded_Cost() {
         return this.added_Cost;
     }
 
-    public void setAddedCost(double added_Cost) {
+    public void setAdded_Cost(double added_Cost) {
         this.added_Cost = added_Cost;
     }
+    
 
 }

@@ -41,4 +41,9 @@ public class OrderController {
     public void completeOrder(@PathVariable("table_Number") Long table_Number){
         orderService.completeOrder(table_Number);
     }
+
+    @GetMapping(path = "final/{table_Number}")
+    public double getFinalPrice(@PathVariable("table_Number") Long table_Number){
+        return orderService.getFinalPrice(table_Number);
+    }
 }

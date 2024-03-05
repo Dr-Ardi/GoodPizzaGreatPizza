@@ -21,6 +21,7 @@ public class Added {
         generator = "added_seq"
     )
 
+    private Long id;
     private String add_Type;
     private String added_Item;
     private double added_Price;
@@ -30,12 +31,22 @@ public class Added {
     }
 
 
-    public Added(String add_Type, String added_Item, double added_Price) {
+    public Added(Long id, String add_Type, String added_Item, double added_Price) {
+        this.id = id;
         this.add_Type = add_Type;
         this.added_Item = added_Item;
         this.added_Price = added_Price;
     }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
     
+
 
     public String getAdd_Type() {
         return this.add_Type;

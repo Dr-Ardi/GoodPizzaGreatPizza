@@ -17,7 +17,7 @@ public class AddedService {
     public List<Added> getAdditionsByType(String add_Type){
         List<String> added = addedRepository.getAllTypes();
         List<Added> defaultVal = List.of(
-            new Added("none", "none", 0.0)
+            new Added(null,"none", "none", 0.0)
         );
         try{
             if (added.contains(add_Type))

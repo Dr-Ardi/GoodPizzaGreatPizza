@@ -6,11 +6,12 @@ import { IngredientService } from '../variables/ingredient.service';
 import { AddedService } from '../variables/added/added.service';
 import { NumComService } from './communicators/num-com.service';
 import { FormsModule } from '@angular/forms';
+import { CheckComponent } from './check.component';
 
 @Component({
   selector: 'app-choices',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, CheckComponent],
   template: `
     <div id="all">
         <div id="choiceList">
@@ -21,7 +22,7 @@ import { FormsModule } from '@angular/forms';
             <div class="list">
                 <label class="choice" *ngFor="let choice of choices" > 
                 <span class="choiceTag">{{this.showChoices(choice)}}</span>
-                    <input type="checkbox" (change)="addItem(choice)">
+                    <app-check (change)="addItem(choice)" [name]="this.showChoices(choice)"></app-check>
                 </label>
             </div>
         </div>

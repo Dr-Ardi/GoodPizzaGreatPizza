@@ -23,14 +23,15 @@ import { OrderService } from '../../variables/orders/order.service';
 export class ItemDetailsComponent implements OnInit {
   
   route: ActivatedRoute = inject(ActivatedRoute);
-  item !: Item;
+  item!: Item;
 
-  table!: number;
+  table: any = localStorage.getItem("table");
   quantity!: number;
   includes!: string;
   excludes!: string;
   comments!: string;
   finalPrice!: number;
+  size!: string;
   orderService: OrderService = inject(OrderService);
   
   constructor(private itemService: ItemService, private incEx: IncExComService,
@@ -41,16 +42,15 @@ export class ItemDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void{ 
-    this.getItems;
   }
 
   getItems(): void{
     this.incEx.include.subscribe((include: string) => this.includes = include);
     this.incEx.exclude.subscribe((exclude: string) => this.excludes = exclude);
     this.extraCom.getComments.subscribe((comments: string) => this.comments = comments);
-    this.numsCom.getTable.subscribe((table: string) => this.table = parseInt(table));
     this.numsCom.getQuantity.subscribe((quantity: string) => this.quantity = parseInt(quantity));
     this.numsCom.getPrice.subscribe((finalPrice: string) => this.finalPrice = parseFloat(finalPrice));
+    this.extraCom.getSize.subscribe((size: string) => this.size = size);
   }
 
   getItemById(itemId: number): void {
@@ -58,12 +58,11 @@ export class ItemDetailsComponent implements OnInit {
   }
 
   addToOrder(): void{
-    var order: Orders = {"table": this.table, "priority": this.item.priority, 
+    var order: Orders = {"table_Number": parseInt(this.table), "priority": this.item.priority, 
       "item_Name": this.item.name, "extra": this.comments, "included": this.includes, 
-      "excluded": this.excludes, "quantity": this.quantity, 
-      "ordered": false, "order_Cost": this.finalPrice};
+      "excluded": this.excludes, "quantity": this.quantity, "ordered": false, 
+      "order_Cost": this.finalPrice, "size": this.size};
     
-    console.log(order);
     var msg = this.orderService.addToOrder(order) ;
     console.log(msg);
   }

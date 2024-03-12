@@ -1,0 +1,21 @@
+<a [routerLink]="['/item', item.id]"> 
+   <div class="{{this.type}}">
+
+      <div class="photoPlace">
+         <app-photo class="itemPhoto" [item]="item"></app-photo>
+      </div>
+      <p class="itemName">{{order.item_Name}}</p>
+
+      <ul class="info">
+         <li>{{this.include}}</li>
+         <li>{{this.exclude}}</li>
+         <li>{{this.extra}}</li>
+      </ul>
+      
+      <div class="numbers">
+         <p>Amount: {{order.quantity}}</p>
+         <p>Price: {{order.order_Cost}}$</p>
+      </div>
+
+   </div>
+</a>

@@ -69,13 +69,24 @@ public class IngredService {
                 List<String> ingredient = ingredRepository.findIngreItemsById(item_Id);
                 String ingredients = ingredient.toString();
 
+                
+                
+                
                 description = ingredients.substring(1, (ingredients.length()-1));
+                
+                if(ingredients.indexOf(",") != -1){
 
-                ingredients = description.substring((description.lastIndexOf(',')+1), description.length() );
+                    ingredients = description.substring((description.lastIndexOf(',')+1), description.length() );
 
-                description = (description.substring(0, description.lastIndexOf(',')) + " and" + ingredients); 
+                    description = (description.substring(0, description.lastIndexOf(',')) + " and" + ingredients); 
 
+                    
+                }
+                
                 description = (type + " with " + description + ".").toLowerCase();
+                
+                if ("Pasta".equals(type))
+                    return List.of(start + " portion of " + description);
                 
                 return List.of(start + description);
             }

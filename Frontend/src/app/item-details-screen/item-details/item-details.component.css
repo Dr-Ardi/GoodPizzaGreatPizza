@@ -57,3 +57,12 @@
 .checker{
     background-color:var(--button-color) ;
 }
+
+.end > button:hover{
+    cursor: pointer;
+    border-color: var(--hover-color);
+}
+
+button:active{
+    background-color: var(--hover-color);
+}

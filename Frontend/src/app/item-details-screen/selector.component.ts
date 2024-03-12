@@ -101,11 +101,11 @@ export class SelectorComponent implements OnInit {
 
   quantity: number = 1;
 
-  excluding: string = "Exclude ";
+  excluding: string = "";
 
-  including: string = "Include ";
+  including: string = "";
 
-  size!: Size;
+  size: Size = {"id": 0, "item_Size": "none", "item_Type": "none", "added_Cost": 0};
 
   constructor(private choiceList:MatDialog,
               private selectCom: TextComService, 
@@ -134,10 +134,18 @@ export class SelectorComponent implements OnInit {
   }
 
   select(): void{
+    
+    var temp = this.size.added_Cost;
     this.selectCom.sendMessage(this.item.type);
     var chosenSize = this.choiceList.open(SizeSelectComponent);
 
-    chosenSize.afterClosed().subscribe((data:Size) => this.size = data);
+    chosenSize.afterClosed().subscribe((data:Size) => {
+      
+      this.size = data;
+      this.finalPrice += (this.size.added_Cost - temp);
+
+    })
+
 
     this.addOrSubtract('same');
   }

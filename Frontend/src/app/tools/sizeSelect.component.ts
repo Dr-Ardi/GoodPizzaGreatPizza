@@ -128,15 +128,16 @@ export class SizeSelectComponent implements OnInit {
 
     showChoices(choice: Size): string{
         var tag: string = "";
-        if (choice.addedCost != 0)
-            tag = choice.itemSize + ": +" + choice.addedCost + "$";
+        if (choice.added_Cost != 0)
+            tag = choice.item_Size + ": +" + choice.added_Cost + "$";
         else
-            tag = choice.itemSize;
+            tag = choice.item_Size;
         return tag;
     }
 
     selectSize(choice: Size): void{
         this.chosen = choice;
+        this.typeCom.sendSize(choice.item_Size);
     }
 }
 

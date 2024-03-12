@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Orders } from './orders';
-import { catchError } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +13,24 @@ export class OrderService {
   constructor(private http: HttpClient) { }
 
   addToOrder(order: Orders): string{
-    this.http.post<Orders>(this.url, order).pipe(
-      catchError((error) => {
-        console.log("There was an error", error);
-        throw error;
-      }));
-    return "Successfully added";
+    this.http.post<Orders>(this.url, order).subscribe((response) =>{
+      return response;
+    });
+    return "Successfully added?";
+  }
+
+  getOrdersByTable(table: number): Observable<Orders[]>{
+    return this.http.get<Orders[]>(`${this.url}/${table}`);
+  }
+
+  completeOrder(table:number): string{
+    this.http.put(`${this.url}/${table}`, table).subscribe((response) => {
+      return response;
+    });
+    return "Complete";
+  }
+
+  getFinalPrice(table: number): Observable<number>{
+    return this.http.get<number>(`${this.url}/final/${table}`);
   }
 }

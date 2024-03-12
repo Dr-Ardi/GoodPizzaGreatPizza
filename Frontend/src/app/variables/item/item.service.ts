@@ -21,7 +21,11 @@ export class ItemService {
   }
 
   getItemById(item_Id: number): Observable<Item>{
-    return  this.http.get<Item>(`${this.url}/${item_Id}`)
+    return  this.http.get<Item>(`${this.url}/id/${item_Id}`);
+  }
+
+  getItemByName(item_Name: string): Observable<Item>{
+    return  this.http.get<Item>(`${this.url}/name/${item_Name}`);
   }
   
 }

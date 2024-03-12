@@ -103,8 +103,6 @@ export class TableListComponent implements OnInit {
     tables: number[] = [];
     tableService: TableService = inject(TableService);
 
-    myTable: string = "Table number";
-
     constructor(private window:MatDialogRef<TableListComponent>){}
     
     ngOnInit(): void {
@@ -117,9 +115,9 @@ export class TableListComponent implements OnInit {
 
     closeTableList(num: number): void{
         if (num == 0)
-            this.window.close("Choose a Table:");
+            this.window.close(0);
         else
-            this.window.close("Table " + num);
+            this.window.close(num);
     }
     
 }

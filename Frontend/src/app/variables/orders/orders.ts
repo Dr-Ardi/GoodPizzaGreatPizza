@@ -1,5 +1,6 @@
 export interface Orders{
-    table: number;
+    id?: number;
+    table_Number: number;
     priority: number;
     item_Name: string;
     extra: string;
@@ -8,4 +9,5 @@ export interface Orders{
     quantity: number;
     ordered: boolean;
     order_Cost: number;
+    size: string;
 }

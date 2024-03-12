@@ -1,7 +1,7 @@
 <a [routerLink]="['/item', item.id]">
 <section class="menuItemList" *ngIf="item.type === this.type">
-        <app-photo class="itemPhoto" [item]="item"></app-photo>
         <p class="itemName">{{ item.name }}</p>
+        <app-photo class="itemPhoto" [item]="item"></app-photo>
         <div class="itemDescription" >
                 <app-desc [item]="item"> </app-desc>
         </div>

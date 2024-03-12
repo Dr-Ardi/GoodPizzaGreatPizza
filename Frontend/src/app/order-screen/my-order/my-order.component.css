@@ -1,0 +1,79 @@
+#back{
+    top:0px;
+}
+
+#headline{
+    font-size: var(--headline);
+    padding: 10px;
+    text-align: center;
+}
+
+.myOrder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 560px;
+}
+
+.order{
+    width: 90%;
+    max-width: 1500px;
+    margin: 15px 0px 15px 0px;
+}
+
+.orderButtons, .orderInfo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 0px 30px 0px;
+}
+
+.orderButtons > button{
+    width: 200px;
+    height: 60px;
+    padding: 5px;
+    font-size: calc(var(--headline)/(1.2*var(--golden-ratio)));
+    border: solid 3px var(--border-color);
+    color:aliceblue;
+}    
+
+.orderInfo{
+    font-size: calc(var(--headline)/(1.2*var(--golden-ratio)));
+    border-top: solid 1px grey;
+    border-bottom: solid 1px grey;
+}
+
+.payment{
+    width: 120px;
+    height: 50px;
+    background-color: var(--button-color);
+    border-color: var(--border-color);
+    color: aliceblue;
+    font-size: 28px;
+    text-align: center;
+}
+
+.payment > option{
+    font-size: 20px;
+}
+
+.complete{
+    background-color: var(--primary-color);
+}
+
+.pay{
+    background-color: var(--button-color);
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.orderButtons > button:hover{
+    border-color: var(--hover-color);
+}
+
+button:active{
+    background-color: var(--hover-color);
+}

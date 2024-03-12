@@ -41,8 +41,53 @@ a{
 
 .itemPrice{
     text-align: right;
+    padding: 3px 0px 3px 0px;
 }
 
 .itemDescription{
     font-size: calc( var(--headline) / (2*var(--golden-ratio)));
+    padding: 3px 0px 3px 0px;
+}
+
+
+@media (max-width: 830px){
+    
+    .menuItemList{
+        width: 180px;
+        height: 270px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .itemName, .itemPrice{
+        font-size: calc( var(--headline) / (1.2*var(--golden-ratio)));
+    }
+
+    .itemPhoto{
+        width: 140px;
+        max-height: 180px;
+    }
+
+    .itemPrice{
+        align-self: flex-end;
+    }
+    
+    .itemDescription{
+        align-self: flex-start;
+    }
+
+}
+
+@media (max-width: 750px){
+    .menuItemList{
+        margin: 15px 50px 15px 50px;
+    }
+}
+
+@media (max-width: 610px){
+    .menuItemList{
+        margin: 15px 20px 15px 20px;
+    }
 }

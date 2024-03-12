@@ -4,7 +4,7 @@
     <a [routerLink]="['/']">
       <img class="logo" src="/assets/GPGPLogo.png" alt="Good Pizza Great Pizza">
     </a>
-    <button id="tables" (click)="openTableList()">{{this.tableMsg}}</button>
+    <button id="tables" [disabled]="isNotInHome()" (click)="openTableList()">{{this.tableMsg}}</button>
   </header>
   <section>
     <router-outlet></router-outlet>

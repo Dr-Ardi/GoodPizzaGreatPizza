@@ -11,6 +11,7 @@
     margin-top: 5px;
     overflow-x:scroll;
 }
+
 .menuBar::-webkit-scrollbar{
     display: none;
 }
@@ -39,4 +40,16 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     width:calc(var(--menu-multi)*411px);
+}
+
+@media (max-width: 830px){
+    
+    .itemList{
+        width:calc(var(--menu-multi)*231px);
+    }
+
+    #back{
+        top:40px;
+    }
+
 }

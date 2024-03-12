@@ -1,0 +1,32 @@
+<app-back id="back"></app-back>
+
+<main>
+
+    <h2 id="headline">My Order</h2>
+
+    <div class="myOrder">
+
+        <app-order-item-caller class="order" *ngFor="let order of orders" [order]="order"></app-order-item-caller>
+
+    </div>
+
+    <div class="orderInfo">
+        
+        <select class="payment" id="pay" [(ngModel)]="paymentMethod" (change)="selectPaymentMethod()">
+            <option value="Cash">Cash</option>
+            <option value="Card">Card</option>
+        </select>
+        
+        <p>Final Price: {{this.finalPrice}}$</p>
+
+    </div>
+
+    <div class="orderButtons">
+        
+        <button class="complete" (click)="completeOrder()">Complete Order</button>
+
+        <button class="pay" (click)="finished()" >Pay</button>
+ 
+    </div>
+
+</main>

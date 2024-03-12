@@ -1,9 +1,8 @@
+<main id="menuScreen">
 
-<section class="menuScreen">
-
-    <div class="menuBar" >
-    <app-menu-bar *ngFor="let type of types" [type]="type"></app-menu-bar>
-    </div>
+    <nav class="menuBar" >
+        <app-menu-bar *ngFor="let type of types" [type]="type"></app-menu-bar>
+    </nav>
 
     <app-back id="back"></app-back>
 
@@ -22,4 +21,4 @@
         </div>
     </div>
 
-</section>
+</main>

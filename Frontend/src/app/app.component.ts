@@ -5,7 +5,6 @@ import { HomeScreenComponent } from './home-screen/home-screen.component';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { TableListComponent } from './tools/tableList.component';
 import { WarningComponent } from './tools/warning.component';
-import { NumComService } from './tools/communicators/num-com.service';
 
 
 @Component({
@@ -16,34 +15,47 @@ import { NumComService } from './tools/communicators/num-com.service';
     imports: [CommonModule, RouterOutlet, HomeScreenComponent, RouterModule, MatDialogModule]
 })
 export class AppComponent implements OnInit {
+  
   title = "GPGPFront";
 
-  tableMsg: string = "Choose a Table:";
+  tableMsg: any = localStorage.getItem("table");
 
-  constructor(private tableList:MatDialog, private warning: MatDialog,
-              private tableCom: NumComService){}
+  isNotInHome(): boolean{
+    return (window.location.pathname != "/");
+  }
+
+  constructor(private tableList:MatDialog, private warning: MatDialog){}
 
   ngOnInit(): void {
-      
+
+    if(this.tableMsg == "0")
+      this.tableMsg = "Choose a Table:";
+    else
+      this.tableMsg = "Table " + this.tableMsg;
+
+    
+    
   }
 
   openTableList(){
     if(this.tableMsg == "Choose a Table:"){
       var tables = this.tableList.open(TableListComponent);
-      tables.afterClosed().subscribe(myTable => {this.tableMsg = myTable});
+      tables.afterClosed().subscribe(myTable => {
+        localStorage.setItem("table", myTable)
+        window.location.reload();
+      });
     }
     else{
       var warning = this.warning.open(WarningComponent);
 
       warning.afterClosed().subscribe(newMsg => {
-        if(newMsg == 'Yes')
-          this.tableMsg = "Choose a Table:";
+        if(newMsg == 'Yes'){
+          localStorage.setItem("table", "0")
+          window.location.reload();
+        }
       });
 
     }
-
-    if(this.tableMsg != "Choose a Table:")
-      this.tableCom.sendTable(this.tableMsg);
   }
 
   

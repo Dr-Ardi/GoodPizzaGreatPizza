@@ -10,7 +10,7 @@
     border-left: solid 1px var(--hover-color);
     
     margin: 5px 0px 5px 0px;
-    padding: 0px 20px 0px 20px;
+    padding: 0px 4vw 0px 4vw;
 }
 .tagButton:hover{
     color: var(--primary-color);

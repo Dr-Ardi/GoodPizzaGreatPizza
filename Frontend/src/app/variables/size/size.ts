@@ -1,5 +1,6 @@
 export interface Size {
-    itemType: string;
-    itemSize: string;
-    addedCost: number;
+    id: number;
+    item_Type: string;
+    item_Size: string;
+    added_Cost: number;
 }

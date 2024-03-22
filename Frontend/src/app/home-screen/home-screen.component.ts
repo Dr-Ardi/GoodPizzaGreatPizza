@@ -24,9 +24,16 @@ export class HomeScreenComponent implements OnInit{
   ngOnInit(): void {
 
     if(this.table == 0 || this.table == "0")
-      this.isTableChosen = true;
-    else
       this.isTableChosen = false;
+    else
+      this.isTableChosen = true;
+  }
+
+  getClass(msg: string): string{
+    if(this.isTableChosen)
+      return msg;
+    else
+      return "not-on";
   }
 
   callWaiter(): void{

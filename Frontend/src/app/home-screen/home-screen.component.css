@@ -6,16 +6,16 @@ main{
     align-items: center;
 }
 
-button{
+.normal, .special, .not-on{
     height: calc(var(--button)/3);
     width: var(--button);
     font-size: var(--headline);
     border-width: 3px;
     border-radius: 10%;
 }
-button:hover{
-    height: calc(inherit+3);
-    width: calc(inherit+3);
+
+.not-on{
+    background-color: #333 ;
 }
 
 .normal{
@@ -24,6 +24,8 @@ button:hover{
     color: inherit;
 }
 .normal:hover{
+    height: calc(inherit+3);
+    width: calc(inherit+3);
     background-color: var(--primary-color);
 }
 .normal:active{
@@ -38,6 +40,8 @@ button:hover{
     color: inherit;
 }
 .special:hover{
+    height: calc(inherit+3);
+    width: calc(inherit+3);
     border-color: var(--hover-color);
 }
 .special:active{

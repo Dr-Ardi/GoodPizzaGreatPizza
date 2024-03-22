@@ -1,11 +1,11 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Item } from '../../variables/item/item';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'
 import { CommentsComponent } from '../../tools/comments.component';
 import { Addables } from '../../variables/addables/addables';
 import { AddablesService } from '../../variables/addables/addables.service';
-import { SelectorComponent } from '../selector.component';
+import { SelectorComponent } from '../selector/selector.component';
 import { NumComService } from '../../tools/communicators/num-com.service';
 
 
@@ -21,19 +21,16 @@ export class DetailsComponent implements OnInit {
   @Input() item !: Item;
 
   finalPrice : number = 0;
+  initial : number = 0;
   
-
   added!: Addables;
-  addablesService: AddablesService = inject(AddablesService);
 
-  ingredients!: string;
-  removedIngredients!: string;
-
-  constructor(private priceCom: NumComService){
+  constructor(private priceCom: NumComService, private addablesService: AddablesService){
   }
 
   ngOnInit(): void {
-      this.finalPrice += this.item.price;
+      this.initial = this.item.price;
+      this.finalPrice = this.item.price;
       this.inputPrice(this.finalPrice);
       this.getAddablesByType(this.item.type);
   }

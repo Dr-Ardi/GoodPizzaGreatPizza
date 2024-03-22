@@ -1,0 +1,24 @@
+<section class="selection">
+    <div id="selectors">
+
+        <button *ngIf="this.added.sizable" class="selector" (click)="select()">Choose Size:</button>
+
+        <button *ngIf="this.added.meats" class="selector" (click)="choose('meat')">Add Meat:</button>
+
+        <button *ngIf="this.added.cheeses" class="selector" (click)="choose('cheese')">Add Cheese:</button>
+
+        <button *ngIf="this.added.sauces" class="selector" (click)="choose('sauce')">Add Sauce:</button>
+
+        <button *ngIf="this.added.extras" class="selector" (click)="choose('extra')">Add Extra:</button>
+
+        <button *ngIf="this.added.removables" class="selector" (click)="choose('removeItems')">Remove Ingredient:</button>
+
+        
+    </div>
+
+    <div id="add">
+        <button class="adders" (click)="addOrSubtract('minus')">-</button>
+        <p id="quantity">{{this.quantity}}</p>
+        <button class="adders" (click)="addOrSubtract('plus')">+</button>
+    </div>
+</section>

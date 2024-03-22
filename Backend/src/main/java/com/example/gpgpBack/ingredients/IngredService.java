@@ -21,9 +21,11 @@ public class IngredService {
         
     }
 
-    public List<String> findIngreItemsById(Long item_Id){
+    public List<Ingredient> findIngreItemsById(Long item_Id){
         
-        List<String> defaultVal = List.of("None");
+        List<Ingredient> defaultVal = List.of(
+            new Ingredient(null, 0, "ingred")
+        );
 
         try{
             Long id = ingredRepository.checkId(item_Id);
@@ -66,7 +68,7 @@ public class IngredService {
 
                 
             if ("Pizza".equals(type) || "Burger".equals(type) || "Salad".equals(type) || "Pasta".equals(type)){
-                List<String> ingredient = ingredRepository.findIngreItemsById(item_Id);
+                List<String> ingredient = ingredRepository.getIngredients(item_Id);
                 String ingredients = ingredient.toString();
 
                 

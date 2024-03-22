@@ -1,8 +1,10 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { TableService } from '../variables/tables/table.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MsgWindowComponent } from '../tools/msgWindow.component';
 
 @Component({
   selector: 'app-home-screen',
@@ -15,13 +17,12 @@ export class HomeScreenComponent implements OnInit{
 
   isTableChosen: boolean = true;
 
-  tableService: TableService = inject(TableService);
-
   table: any = localStorage.getItem("table") || 0;
 
-  constructor(){}
+  constructor(private tableService: TableService, public notify: MatDialog){}
 
   ngOnInit(): void {
+
     if(this.table == 0 || this.table == "0")
       this.isTableChosen = true;
     else
@@ -30,6 +31,6 @@ export class HomeScreenComponent implements OnInit{
 
   callWaiter(): void{
     var msg = this.tableService.callWaiter(this.table);
-    window.confirm(msg);
+    this.notify.open(MsgWindowComponent, {data: msg});
   }
 }

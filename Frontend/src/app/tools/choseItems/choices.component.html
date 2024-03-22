@@ -1,0 +1,14 @@
+<div id="all">
+    <div id="choiceList">
+        <div id="titleCard">
+            <p>{{this.msg}}</p>
+            <button id="close" (click)="closeSelector()">Done</button> 
+        </div>
+        <div class="list">
+            <label class="choice" [ngClass]="{'selected': item.isItChecked}" *ngFor="let item of items" > 
+            <span class="choiceTag">{{this.showItem(item)}}</span>
+                <input type="checkbox" (change)="select(item)" [checked]="item.isItChecked">
+            </label>
+        </div>
+    </div>
+<div>

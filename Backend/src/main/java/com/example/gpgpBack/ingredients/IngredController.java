@@ -21,7 +21,7 @@ public class IngredController {
     }
     
     @GetMapping(path = "{item_Id}")
-    public List<String> findIngreItemsById(@PathVariable("item_Id") Long item_Id){
+    public List<Ingredient> findIngreItemsById(@PathVariable("item_Id") Long item_Id){
         return ingredService.findIngreItemsById(item_Id);
     }
 

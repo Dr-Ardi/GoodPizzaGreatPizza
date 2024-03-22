@@ -1,4 +1,4 @@
-import { Component, Input, inject} from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ItemListComponent } from '../item-list/item-list.component';
 import { ItemService } from '../../variables/item/item.service';
@@ -16,13 +16,12 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 })
 
 export class MenuComponent {
-  itemService: ItemService = inject(ItemService);
+  
   types: string[] = [];
 
   @Input('matTooltip') message: string ="swipe >";
 
-  constructor() {
-  }
+  constructor(private itemService: ItemService) {}
 
   ngOnInit(): void {
     this.getEachType();

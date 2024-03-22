@@ -1,7 +1,7 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Item } from '../variables/item/item';
 import { CommonModule } from '@angular/common';
-import { IngredientService } from '../variables/ingredient.service';
+import { IngredientService } from '../variables/ingredients/ingredient.service';
 
 @Component({
   selector: 'app-desc',
@@ -15,9 +15,9 @@ import { IngredientService } from '../variables/ingredient.service';
 export class DescComponent implements OnInit {
 
   @Input() item !: Item;
-  ingredientService: IngredientService = inject(IngredientService);
-
   description!: string;
+
+  constructor(private ingredientService: IngredientService){}
 
   ngOnInit(): void {
     this.ingredientService.getIngredients(this.item.id).subscribe((data: string) => this.description = data);

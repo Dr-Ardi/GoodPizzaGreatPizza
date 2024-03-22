@@ -1,11 +1,13 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { BackComponent } from '../../tools/backButton/back.component';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BackComponent } from '../../tools/backButton/back.component';
 import { Orders } from '../../variables/orders/orders';
 import { OrderItemCallerComponent } from '../order-item-caller.component';
 import { OrderService } from '../../variables/orders/order.service';
 import { FormsModule } from '@angular/forms';
 import { TableService } from '../../variables/tables/table.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MsgWindowComponent } from '../../tools/msgWindow.component';
 
 @Component({
   selector: 'app-my-order',
@@ -17,15 +19,14 @@ import { TableService } from '../../variables/tables/table.service';
 export class MyOrderComponent implements OnInit{
   
   orders: Orders[] = [];
-  orderService: OrderService = inject(OrderService);
-  tableService: TableService = inject(TableService);
 
   paymentMethod: any = localStorage.getItem("payment") || "Cash";
 
   table: any = localStorage.getItem("table"); 
   finalPrice: number = 0;
 
-  constructor(){}
+  constructor(private orderService: OrderService, private tableService: TableService,
+    public notify: MatDialog){}
   
   ngOnInit(): void {
     this.getOrdersByTable(this.table);
@@ -50,6 +51,6 @@ export class MyOrderComponent implements OnInit{
 
   finished(): void{
     var msg = this.tableService.finished(this.table);
-    window.confirm(msg);
+    this.notify.open(MsgWindowComponent, {data: msg});
   } 
 }

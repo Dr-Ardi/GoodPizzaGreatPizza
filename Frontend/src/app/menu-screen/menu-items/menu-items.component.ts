@@ -1,8 +1,8 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Item } from '../../variables/item/item';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { IngredientService } from '../../variables/ingredient.service';
+import { IngredientService } from '../../variables/ingredients/ingredient.service';
 import { PhotoComponent } from '../../tools/photo/photo.component';
 import { DescComponent } from '../../tools/desc.component';
 
@@ -15,11 +15,11 @@ import { DescComponent } from '../../tools/desc.component';
   styleUrl: './menu-items.component.css'
 })
 export class MenuItemsComponent implements OnInit{
-
-  ingredientService: IngredientService = inject(IngredientService);
   
   @Input() item!: Item;
   @Input() type!: string;
+
+  constructor(private ingredientService: IngredientService){}
 
   ngOnInit(): void{
     this.checkType();

@@ -3,11 +3,12 @@ import { PhotoComponent } from '../../tools/photo/photo.component';
 import { Orders } from '../../variables/orders/orders';
 import { Item } from '../../variables/item/item';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-order-item',
   standalone: true,
-  imports: [PhotoComponent, RouterModule],
+  imports: [CommonModule, PhotoComponent, RouterModule],
   templateUrl: './order-item.component.html',
   styleUrl: './order-item.component.css'
 })

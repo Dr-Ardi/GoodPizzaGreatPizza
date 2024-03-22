@@ -72,6 +72,12 @@ public class ItemService {
 
     }
 
+    public List<Item> getItemsByType(String type) {
+
+        return itemRepository.getItemsByType(type);
+
+    }
+
     public Item getItemByName(String name) {
 
         Item defaultItem = new Item( null, "type", "name", 0, 0.0);

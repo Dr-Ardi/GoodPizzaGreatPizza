@@ -9,7 +9,7 @@ import { BackButtonDirective } from './back-button.directive';
   imports: [CommonModule, BackButtonDirective],
   template: `
      <div class="goBack">
-        <button id="back" appBackButton>Back</button>
+        <button id="back" (click)="deleteDefSize()" appBackButton>Back</button>
     </div>
   `,
   styles: ` 
@@ -42,5 +42,7 @@ export class BackComponent {
 
   @Input() item !: Item;
 
-  
+  deleteDefSize(): void{
+    localStorage.setItem("defaultSize", "");
+  }
 }

@@ -32,6 +32,22 @@ public class TablesController {
         return tablesService.getAvailableTables(false);
     }  
 
+    @PutMapping(path = "sit/{table_Number}")
+    public void sit(@PathVariable("table_Number") Long table_Number){
+        tablesService.sit(table_Number);
+    }
+
+    @PutMapping(path = "unsit/{table_Number}")
+    public void unsit(@PathVariable("table_Number") Long table_Number){
+        tablesService.unsit(table_Number);
+    }
+
+    @PutMapping(path = "paid/{table_Number}")
+    public void tablePaid(@PathVariable("table_Number") Long table_Number){
+        tablesService.tablePaid(table_Number);
+    }
+
+
     @PutMapping(path = "waiter/{table_Number}")
     public void callWaiter(@PathVariable("table_Number") Long table_Number){
         tablesService.callWaiter(table_Number);

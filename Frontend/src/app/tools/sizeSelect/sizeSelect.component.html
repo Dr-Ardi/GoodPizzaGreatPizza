@@ -1,0 +1,17 @@
+<div id="all">
+    <div id="choiceList">
+        <div id="titleCard">
+            <p>Choose a Size: </p>
+            <button id="close" (click)="closeSelector()">Close</button> 
+        </div>
+
+        <form class="list">
+            <label class="choice" [ngClass]="{'selected': this.isItSelected(choice)}" *ngFor="let choice of choices" (click)="selectSize(choice)"> {{this.showChoices(choice)}} 
+                <input type="radio" [(ngModel)]="default" [id]="choice" name="size" value="{{choice.id.toString()}}">
+            </label>     
+                <button id="choose" (click)="chosenItem()">Select</button>
+        </form>
+
+
+    </div>
+<div>

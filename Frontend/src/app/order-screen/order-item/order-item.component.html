@@ -7,6 +7,7 @@
       <p class="itemName">{{order.item_Name}}</p>
 
       <ul class="info">
+         <li *ngIf="order.size">Size: {{order.size}}</li>
          <li>{{this.include}}</li>
          <li>{{this.exclude}}</li>
          <li>{{this.extra}}</li>
@@ -14,7 +15,7 @@
       
       <div class="numbers">
          <p>Amount: {{order.quantity}}</p>
-         <p>Price: {{order.order_Cost}}$</p>
+         <p>Price: {{order.order_Cost}}€</p>
       </div>
 
    </div>

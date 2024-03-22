@@ -22,31 +22,42 @@ public class Ingredient {
         generator = "ingred_seq"
     )
 
-    private Long item_Id;
+    private Long id;
+    private int item_Id;
     private String ingredient_Name;
 
 
     public Ingredient() {
     }
 
-    public Ingredient(Long item_Id, String ingredient_Name) {
+    public Ingredient(Long id, int item_Id, String ingredient_Name) {
+        this.id = id;
         this.item_Id = item_Id;
         this.ingredient_Name = ingredient_Name;
     }
 
-    public Long getItemId() {
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getItem_Id() {
         return this.item_Id;
     }
 
-    public void setItemId(Long item_Id) {
+    public void setItem_Id(int item_Id) {
         this.item_Id = item_Id;
     }
 
-    public String getIngredientName() {
+    public String getIngredient_Name() {
         return this.ingredient_Name;
     }
 
-    public void setIngredientName(String ingredient_Name) {
+    public void setIngredient_Name(String ingredient_Name) {
         this.ingredient_Name = ingredient_Name;
     }
 

@@ -18,10 +18,10 @@ import { FormsModule } from '@angular/forms';
         background-color: var(--button-color);
         font-size: large;
         padding: 5px;
-        width: 86.5%;
+        width: 80.5%;
         height: 200px;
         border-color: var(--border-color);
-        margin: 40px 4.5% 40px 6% ;
+        margin: 40px 7.5% 40px 9% ;
         color: aliceblue;
     }
   `

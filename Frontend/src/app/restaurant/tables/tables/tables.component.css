@@ -1,0 +1,26 @@
+.table, .unoccupied, .called, .finished{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 180px;
+    border: solid 5px var(--shadow-color);
+    border-radius: 20px;
+    margin: 15px;
+}
+
+.table{
+    background-color: var(--button-color);
+}
+
+.unoccupied{
+    background-color: #333;
+}
+
+.called{
+    background-color: yellow;
+}
+
+.finished{
+    background-color: var(--primary-color);
+}

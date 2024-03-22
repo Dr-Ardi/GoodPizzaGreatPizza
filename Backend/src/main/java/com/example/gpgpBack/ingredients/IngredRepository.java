@@ -12,7 +12,10 @@ public interface IngredRepository extends JpaRepository<Ingredient, Long>  {
     @Query("SELECT i.item_Id FROM Ingredient i WHERE i.item_Id = ?1")
     Long checkId(Long item_Id);
 
+    @Query("SELECT i FROM Ingredient i WHERE i.item_Id = ?1")
+    List<Ingredient> findIngreItemsById(Long item_Id);
+
     @Query("SELECT i.ingredient_Name FROM Ingredient i WHERE i.item_Id = ?1")
-    List<String> findIngreItemsById(Long item_Id);
+    List<String> getIngredients(Long item_Id);
 
 }

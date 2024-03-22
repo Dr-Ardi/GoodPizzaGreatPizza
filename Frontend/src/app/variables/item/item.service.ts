@@ -27,5 +27,10 @@ export class ItemService {
   getItemByName(item_Name: string): Observable<Item>{
     return  this.http.get<Item>(`${this.url}/name/${item_Name}`);
   }
+
+  getItemsByType(type: string): Observable<Item[]>{
+      return this.http.get<Item[]>(`${this.url}/type/${type}`);
+    
+  }
   
 }

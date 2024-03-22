@@ -24,9 +24,10 @@ import { PhotoService } from './photo.service';
 export class PhotoComponent implements OnInit {
 
   @Input() item !: Item;
-  photoService: PhotoService = inject(PhotoService);
 
   photoSrc!: string;
+
+  constructor(private photoService: PhotoService){}
 
   ngOnInit(): void {
       this.getPhotoSrc(this.item);

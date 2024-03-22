@@ -39,17 +39,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    width:calc(var(--menu-multi)*411px);
+    width: 100%;
+    padding-top: 25px 5% 0px 5%;
 }
 
-@media (max-width: 830px){
+@media (max-width: 810px){
     
-    .itemList{
-        width:calc(var(--menu-multi)*231px);
-    }
-
     #back{
         top:40px;
     }
 
-}
+} 

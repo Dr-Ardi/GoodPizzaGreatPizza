@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, inject } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Orders } from '../variables/orders/orders';
 import { Item } from '../variables/item/item';
 import { ItemService } from '../variables/item/item.service';
@@ -12,15 +12,26 @@ import { OrderItemComponent } from './order-item/order-item.component';
   template: `
     <section class="item">
 
-      <app-order-item id="ordering" *ngIf="!order.ordered" [item]="item" [order]="order" [type]="type">
-      </app-order-item>
+      <div *ngIf="order.item_Name !== 'Table Not Found'">
+        <app-order-item id="ordering" *ngIf="!order.ordered" [item]="item" [order]="order" [type]="type">
+        </app-order-item>
 
-      <app-order-item id="ordered" *ngIf="order.ordered" [item]="item" [order]="order" [type]="type">
-      </app-order-item>
-
+        <app-order-item id="ordered" *ngIf="order.ordered" [item]="item" [order]="order" [type]="type">
+        </app-order-item>
+      </div>
+      <div *ngIf="order.item_Name == 'Table Not Found'">
+        <p class="noOrder">You haven't ordered yet.</p>
+      </div>
     </section>
   `,
-  styles: ``
+  styles: `
+    .noOrder{
+      text-align: center;
+      color: #ccc;
+      margin-top: 40px;
+      font-size: 20px;
+    }
+  `
 })
 export class OrderItemCallerComponent implements OnInit {
 
@@ -28,7 +39,8 @@ export class OrderItemCallerComponent implements OnInit {
 
   type!: string;
   item!: Item;
-  itemService: ItemService = inject(ItemService);
+
+  constructor(private itemService: ItemService){}
 
   ngOnInit(): void {
     this.getItemByName(this.order.item_Name);

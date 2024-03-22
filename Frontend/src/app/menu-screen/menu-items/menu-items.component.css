@@ -11,8 +11,6 @@
     border: solid 10px var(--button-color);
     border-radius: 10%;
     box-shadow:5px 10px 20px var(--shadow-color);
-    
-    margin: 15px 20px 15px 20px;
 
 }
 
@@ -50,7 +48,7 @@ a{
 }
 
 
-@media (max-width: 830px){
+@media (max-width: 810px){
     
     .menuItemList{
         width: 180px;
@@ -78,16 +76,4 @@ a{
         align-self: flex-start;
     }
 
-}
-
-@media (max-width: 750px){
-    .menuItemList{
-        margin: 15px 50px 15px 50px;
-    }
-}
-
-@media (max-width: 610px){
-    .menuItemList{
-        margin: 15px 20px 15px 20px;
-    }
 }

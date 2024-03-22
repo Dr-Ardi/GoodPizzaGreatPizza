@@ -18,6 +18,9 @@ import { MatDialogRef } from '@angular/material/dialog';
      
   `,
   styles: ` 
+    ::-webkit-scrollbar {
+        display: none;
+    }
     #all{
         position: fixed;
         background-color: transparent;

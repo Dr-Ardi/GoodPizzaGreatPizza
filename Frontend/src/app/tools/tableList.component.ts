@@ -1,4 +1,4 @@
-import { Component, OnInit, inject} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableService } from '../variables/tables/table.service';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -22,7 +22,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styles: ` 
 
     ::-webkit-scrollbar {
-        width: 0px;
+        display: none;
     }
 
     #all{
@@ -51,7 +51,7 @@ import { MatDialogRef } from '@angular/material/dialog';
         width:400px;
         height: 600px;
         display: flex;
-        overflow-x: scroll;
+        overflow-y: scroll;
         flex-direction: column;
         top: 20%;
         left: 20%;
@@ -101,9 +101,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class TableListComponent implements OnInit {
 
     tables: number[] = [];
-    tableService: TableService = inject(TableService);
 
-    constructor(private window:MatDialogRef<TableListComponent>){}
+    constructor(private window:MatDialogRef<TableListComponent>, private tableService: TableService){}
     
     ngOnInit(): void {
         this.getAvailableTables();

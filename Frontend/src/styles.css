@@ -84,6 +84,7 @@ body {
 @media (max-width: 610px){
   :root {
     --menu-multi: calc(548/261);
+    --button: 250px;
   }
 }
 

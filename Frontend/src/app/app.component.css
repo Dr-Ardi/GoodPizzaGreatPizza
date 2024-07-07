@@ -4,12 +4,13 @@
 
 header{
     background-color: var(--primary-color);
-    padding: 10px 5px 10px 5px;
+    padding: 1vh 5px;
     border-bottom-width: 3px;
     border-color: var(--border-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 7vh;
 }
 
 .logo{

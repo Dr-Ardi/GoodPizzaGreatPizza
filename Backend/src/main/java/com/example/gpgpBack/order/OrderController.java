@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,8 +43,13 @@ public class OrderController {
         orderService.completeOrder(table_Number);
     }
 
-    @GetMapping(path = "final/{table_Number}")
+    @GetMapping(path = "/final/{table_Number}")
     public double getFinalPrice(@PathVariable("table_Number") Long table_Number){
         return orderService.getFinalPrice(table_Number);
+    }
+
+    @DeleteMapping(path = "/delete/{table_Number}")
+    public void deleteTableOrder(@PathVariable("table_Number") Long table_Number){
+        orderService.deleteTableOrder(table_Number);
     }
 }

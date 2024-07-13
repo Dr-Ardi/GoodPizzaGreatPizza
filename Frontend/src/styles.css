@@ -1,29 +1,35 @@
 * {
     margin: 0;
     padding: 0;
+    /* overflow-x: hidden;  */
+
 }
 
 :root {
-  --background-color: #242e49;
-  --primary-color: #b6192c;
-  --button-color: #384358;
+  --primary-color: #d31f34;
+  --button-color: #242e4998;
   --shadow-color: #171c2f;
   --border-color: #54192d;
-  --hover-color: #ffa586;
+  --hover-color: #ffbda7;
 
   --headline: 45px;
   --golden-ratio: 1.618;
-  --button: 350px;
+  --button: 40px;
 
   --menu-multi: calc(1650/411);
 }
 
 ::-webkit-scrollbar {
-  width: 15px;
+  width: 5px;
+}
+
+::-webkit-scrollbar:hover{
+  width: 12px;
+  cursor: grab;
 }
 
 ::-webkit-scrollbar-track-piece{
-  background: var(--shadow-color); 
+  background: var(--shadow-color);
 }
 
 ::-webkit-scrollbar-track {
@@ -32,18 +38,26 @@
 
 ::-webkit-scrollbar-thumb {
   background: var(--border-color); 
-  height: 300px;
+  
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-color); 
-  cursor: grab;
 }
   
 body {
+  height: 100dvh;
+  width: 100dvw;
   font-family: 'Be Vietnam Pro', sans-serif;
-  background-color:var(--background-color);
+  background-image: url('/assets/pizzaback.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+  background-blend-mode:darken;
+  background-color:var(--button-color);
   color:rgb(240, 255, 255);
+  overflow-x: hidden;
 } 
 
 
@@ -84,7 +98,7 @@ body {
 @media (max-width: 610px){
   :root {
     --menu-multi: calc(548/261);
-    --button: 250px;
+    /* --button: 30px; */
   }
 }
 

@@ -17,7 +17,4 @@ public interface OrderRepository extends JpaRepository<Order, Long>{
     
     @Query("SELECT SUM(o.order_Cost) FROM Order o WHERE o.table_Number = ?1")
     double getFinalPrice(Long table_Number);
-
-    @Query("DELETE FROM Order o WHERE o.table_Number = ?1")
-    Void deleteTableOrder(Long table_Number);
 }

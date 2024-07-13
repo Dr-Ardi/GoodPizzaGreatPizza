@@ -1,10 +1,13 @@
 <main class="main">
 
-  <header class="topBar">
-    <a [routerLink]="['/']">
-      <img class="logo" src="/assets/GPGPLogo.png" alt="Good Pizza Great Pizza">
+  <header class="{{isNotTable()}}">
+    <a [routerLink]="['/home']">
+      <img class="barLogo" src="/assets/GPGPLogo.png" alt="Good Pizza Great Pizza">
     </a>
-    <button id="tables" [disabled]="isNotInHome()" (click)="openTableList()">{{this.tableMsg}}</button>
+    <div class="specialButtons">
+      <button id="callWaiter" class="normBut" (click)="callWaiter()" (mouseover)="hint($event ,'Call Waiter')" (mouseout)="removeHint()"></button>
+      <button id="back" class="{{isNotInHome()}}" (mouseover)="hint($event ,'Go Back')" (mouseout)="removeHint()" appBackButton></button>
+    </div>
   </header>
   <section>
     <router-outlet></router-outlet>

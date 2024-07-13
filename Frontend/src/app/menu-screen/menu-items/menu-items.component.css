@@ -1,14 +1,14 @@
 .menuItemList{
 
     display: grid;
-    grid-template-columns: calc(var(--button)*0.4) auto;
+    grid-template-columns: calc(350px*0.4) auto;
     grid-template-rows: auto auto auto;
     
-    width: var(--button);
-    height: calc(var(--button)/2);
+    width: 350px;
+    height: 175px;
 
     background-color: var(--button-color);
-    border: solid 10px var(--button-color);
+    border: 5px solid var(--button-color);
     border-radius: 10%;
     box-shadow:5px 10px 20px var(--shadow-color);
 
@@ -25,7 +25,7 @@ a{
     
     height:auto;
     max-height:160px;
-    width: calc(var(--button)/3);
+    width: calc(350px/3);
     
     border-radius: 10%;
     

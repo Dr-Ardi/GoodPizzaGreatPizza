@@ -78,4 +78,9 @@ public class OrderService {
 
         return defaultFinal;
     }
+
+    public void deleteTableOrder(Long table_Number){
+        List<Order> orders = orderRepository.getTableOrders(table_Number);
+        orders.forEach(order -> orderRepository.deleteById(order.getId()));
+    }
 }

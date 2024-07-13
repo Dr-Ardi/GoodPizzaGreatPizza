@@ -15,7 +15,7 @@ public interface TablesRepository extends JpaRepository<Tables, Long>{
     @Query("SELECT t FROM Tables t ORDER BY t.table_Number ASC")
     List<Tables> getAllTables();
 
-    @Query("SELECT t.occupied FROM Tables t WHERE t.table_Number = ?1")
+    @Query("SELECT t.waiter_Called FROM Tables t WHERE t.table_Number = ?1")
     boolean isWaiterCalled(Long table_Number);
 
     @Query("SELECT t.finished FROM Tables t WHERE t.table_Number = ?1")

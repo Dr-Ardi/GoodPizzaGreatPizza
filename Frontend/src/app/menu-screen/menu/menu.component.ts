@@ -3,14 +3,13 @@ import { CommonModule } from '@angular/common';
 import { ItemListComponent } from '../item-list/item-list.component';
 import { ItemService } from '../../variables/item/item.service';
 import { MenuBarComponent } from '../menu-bar/menu-bar.component';
-import { BackComponent } from '../../tools/backButton/back.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [CommonModule, ItemListComponent, MenuBarComponent, BackComponent, MatTooltipModule],
+  imports: [CommonModule, ItemListComponent, MenuBarComponent, MatTooltipModule],
   templateUrl:'./menu.component.html',
   styleUrl: './menu.component.css'
 })

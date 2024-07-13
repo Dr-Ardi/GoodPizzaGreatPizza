@@ -1,5 +1,5 @@
 <main>
-    <button [routerLink]="['/menu']" [disabled]="!isTableChosen" class="{{getClass('normal')}}" >Menu</button>
-    <button [routerLink]="['/order']" [disabled]="!isTableChosen" class="{{getClass('normal')}}">My Order</button>
-    <button class="{{getClass('special')}}" [disabled]="!isTableChosen" (click)="callWaiter()">Call Waiter</button>
+    <button [routerLink]="['/menu']" class="normal" >Menu</button>
+    <button [routerLink]="['/order']" class="normal">My Order</button>
+    <button (click)="leaveTable()" class="normal">Leave Table</button>
 </main>

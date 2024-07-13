@@ -7,6 +7,7 @@
 #price{
     text-align: right;
     margin-right: 30px;
+    font-size: calc(var(--headline)/var(--golden-ratio));
 }
 
 

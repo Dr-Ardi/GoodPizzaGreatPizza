@@ -1,0 +1,26 @@
+.tableSelScreen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 100dvh;
+}
+
+#welcome{
+    font-size: 8dvw;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#tables{
+    background-color: transparent;
+    box-shadow: 0px 0px 5px rgba(227, 228, 237, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    border-radius: 10%;
+    font-size: var(--button);
+    color: var(--hover-color);
+    padding: 30px 20px;
+}

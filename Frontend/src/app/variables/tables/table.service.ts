@@ -62,4 +62,11 @@ export class TableService {
     });
     return "Paid";
   }
+
+  leaveTable(table: number): any{
+    this.http.put(`${this.url}/leftTable/${table}`, table).subscribe((response) => {
+      return response;
+    });
+    return "Bye Bye";
+  }
 }

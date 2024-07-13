@@ -1,4 +1,4 @@
-<a [routerLink]="['/item', item.id]"> 
+<a *ngIf="item" [routerLink]="['/item', item.id]"> 
    <div class="{{this.type}}">
 
       <div class="photoPlace">

@@ -1,3 +1,4 @@
+
 .title, .imaging, .end{
     display: flex;
 }
@@ -8,12 +9,13 @@
 
 .title{
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 .titleText{
     font-size: calc(var(--headline)/var(--golden-ratio));
     width: fit-content;
     border-bottom: solid 1px white;
+    margin-top: 10px;
 }
 
 .imaging{
@@ -31,11 +33,11 @@
 }
 .desc{
     height: 120px;
-    max-width: 300px;
-    min-width: 250px;
+    width: 50%;
     margin-left: 5px;
     text-align: start;
     text-wrap: wrap;
+    font-size: calc(var(--headline)/(1.2*var(--golden-ratio)));
 }
 
 .end{

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BackComponent } from '../../tools/backButton/back.component';
 import { Orders } from '../../variables/orders/orders';
 import { OrderItemCallerComponent } from '../order-item-caller.component';
 import { OrderService } from '../../variables/orders/order.service';
@@ -12,7 +11,7 @@ import { MsgWindowComponent } from '../../tools/msgWindow.component';
 @Component({
   selector: 'app-my-order',
   standalone: true,
-  imports: [BackComponent, CommonModule, OrderItemCallerComponent, FormsModule],
+  imports: [CommonModule, OrderItemCallerComponent, FormsModule],
   templateUrl: './my-order.component.html' ,
   styleUrl: './my-order.component.css'
 })

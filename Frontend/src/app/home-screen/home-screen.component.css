@@ -1,5 +1,5 @@
 main{
-    height: 91vh; ;
+    height: calc(91dvh - 4px); 
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -7,45 +7,28 @@ main{
 }
 
 .normal, .special, .not-on{
-    height: calc(var(--button)/3);
-    width: var(--button);
-    font-size: var(--headline);
-    border-width: 3px;
+    font-size: var(--button);
+    padding: 30px 20px;
+    min-width: 300px;
     border-radius: 10%;
-}
-
-.not-on{
-    background-color: #333 ;
+    background-color: transparent;
+    box-shadow: 0px 0px 5px rgba(110, 2, 2, 0.527);
+    border: 3px solid rgba(252, 8, 8, 0.253);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
 }
 
 .normal{
-    background-color: var(--button-color);
-    border-color: var(--border-color);
     color: inherit;
 }
 .normal:hover{
-    height: calc(inherit+3);
-    width: calc(inherit+3);
-    background-color: var(--primary-color);
-}
-.normal:active{
-    background-color: var(--hover-color);
     border-color: var(--hover-color);
-    color:  var(--primary-color);
 }
 
 .special{
-    background-color: var(--primary-color);
-    border-color: var(--border-color);
     color: inherit;
 }
 .special:hover{
-    height: calc(inherit+3);
-    width: calc(inherit+3);
     border-color: var(--hover-color);
-}
-.special:active{
-    background-color: var(--hover-color);
-    color:  var(--primary-color);
 }
 

@@ -4,10 +4,16 @@ import { MenuComponent } from './menu-screen/menu/menu.component';
 import { ItemDetailsComponent } from './item-details-screen/item-details/item-details.component';
 import { MyOrderComponent } from './order-screen/my-order/my-order.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
+import { TableSelScreenComponent } from './table-sel-screen/table-sel-screen.component';
 
 export const routes: Routes = [
     {
         path:'',
+        component: TableSelScreenComponent,
+        title:'Welcome',
+    },
+    {
+        path:'home',
         component: HomeScreenComponent,
         title:'Home Screen',
     },

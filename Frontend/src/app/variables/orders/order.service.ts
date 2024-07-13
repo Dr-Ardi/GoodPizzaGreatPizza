@@ -33,4 +33,8 @@ export class OrderService {
   getFinalPrice(table: number): Observable<number>{
     return this.http.get<number>(`${this.url}/final/${table}`);
   }
+
+  deleteOrders(table: number): Observable<any> {
+    return this.http.delete(`${this.url}/delete/${table}`);
+  }
 }

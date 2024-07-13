@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { TableService } from '../variables/tables/table.service';
 import { MatDialog } from '@angular/material/dialog';
-import { MsgWindowComponent } from '../tools/msgWindow.component';
+import { WarningComponent } from '../tools/warning.component';
+import { OrderService } from '../variables/orders/order.service';
 
 @Component({
   selector: 'app-home-screen',
@@ -15,29 +16,31 @@ import { MsgWindowComponent } from '../tools/msgWindow.component';
 })
 export class HomeScreenComponent implements OnInit{
 
-  isTableChosen: boolean = true;
-
   table: any = localStorage.getItem("table") || 0;
 
-  constructor(private tableService: TableService, public notify: MatDialog){}
+  constructor(private tableService: TableService, private orderService: OrderService, private warning: MatDialog, private location: Location){}
 
   ngOnInit(): void {
-
-    if(this.table == 0 || this.table == "0")
-      this.isTableChosen = false;
-    else
-      this.isTableChosen = true;
   }
 
-  getClass(msg: string): string{
-    if(this.isTableChosen)
-      return msg;
-    else
-      return "not-on";
-  }
+  leaveTable(): void{
+    var warning = this.warning.open(WarningComponent);
 
-  callWaiter(): void{
-    var msg = this.tableService.callWaiter(this.table);
-    this.notify.open(MsgWindowComponent, {data: msg});
+    warning.afterClosed().subscribe(newMsg => {
+      if(newMsg == 'Yes'){
+        this.tableService.unsit(this.table);
+        var rep = this.tableService.leaveTable(this.table);
+        this.orderService.deleteOrders(this.table).subscribe(
+          response => {
+            console.log('Order deleted successfully', response);
+          },
+          error => {
+            console.error('Error deleting order', error);
+          }
+        );
+        localStorage.setItem("table", "0");
+        window.location.href = "/";
+      }
+    });
   }
 }

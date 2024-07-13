@@ -42,10 +42,10 @@ public class TablesController {
         tablesService.unsit(table_Number);
     }
 
-    @PutMapping(path = "paid/{table_Number}")
-    public void tablePaid(@PathVariable("table_Number") Long table_Number){
-        tablesService.tablePaid(table_Number);
-    }
+    // @PutMapping(path = "paid/{table_Number}")
+    // public void tablePaid(@PathVariable("table_Number") Long table_Number){
+    //     tablesService.tablePaid(table_Number);
+    // }
 
 
     @PutMapping(path = "waiter/{table_Number}")
@@ -62,6 +62,11 @@ public class TablesController {
     public void changePaymentMethod(@PathVariable("table_Number") Long table_Number,
                                     @RequestParam(required = false) String payment){
         tablesService.changePaymentMethod(table_Number, payment);
+    }
+
+    @PutMapping(path = "/leftTable/{table_Number}")
+    public void peopleLeftTable(@PathVariable("table_Number") Long table_Number){
+        tablesService.peopleLeftTable(table_Number);
     }
     
 }

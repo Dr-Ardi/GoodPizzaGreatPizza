@@ -66,7 +66,7 @@ export class GlobalVariablesService {
     if(this.globalCheese){
       this.globalCheese.forEach((cheese) => {
         if (cheese.isItChecked){
-          includes += cheese.added_Price;
+          includes += cheese.added_Item;
           includes += ", ";
         }
       });

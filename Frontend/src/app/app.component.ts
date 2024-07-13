@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule, Location  } from '@angular/common';
+import { Component, OnInit, Renderer2 } from '@angular/core';
+import { CommonModule  } from '@angular/common';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HomeScreenComponent } from './home-screen/home-screen.component';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
-import { TableListComponent } from './tools/tableList.component';
-import { WarningComponent } from './tools/warning.component';
 import { TableService } from './variables/tables/table.service';
+import { TableSelScreenComponent } from './table-sel-screen/table-sel-screen.component';
+import { BackButtonDirective } from './tools/backButton/back-button.directive';
+import { MsgWindowComponent } from './tools/msgWindow.component';
 
 
 @Component({
@@ -13,67 +14,80 @@ import { TableService } from './variables/tables/table.service';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [CommonModule, RouterOutlet, HomeScreenComponent, RouterModule, MatDialogModule]
+    imports: [CommonModule, RouterOutlet, HomeScreenComponent, RouterModule, MatDialogModule, TableSelScreenComponent, BackButtonDirective]
 })
-export class AppComponent implements OnInit {
-  
-  title = "GPGPFront";
+export class AppComponent implements OnInit{
+
+  title = 'Good Pizza Great Pizza';
 
   tableMsg: any = localStorage.getItem("table");
 
-  table!: string;
+  table!: any;
   
-  constructor(private tableList:MatDialog, private warning: MatDialog,
-              private location: Location, private tableService: TableService){}
+  constructor(private tableService: TableService, private notify: MatDialog, private renderer: Renderer2){}
 
   ngOnInit(): void {
 
-    this.openedThroughLink();
-
-    if(this.tableMsg == "0")
-      this.tableMsg = "Choose a Table:";
+    if(this.tableMsg == "0"){
+      this.checkTable(window.location.pathname != "/");
+    }
     else{
+      this.checkTable(window.location.pathname != "/");
       var table = parseInt(this.tableMsg);
-      this.tableMsg = "Table " + this.tableMsg;
+      this.table = "Table " + this.tableMsg;
       var msg = this.tableService.sit(table);
     }
   }
 
-  openedThroughLink(): void{
-    this.table = window.location.hash.substring(1) || "0";
-    if (this.table != "0"){
-      localStorage.setItem("table", this.table);
-      this.location.replaceState(this.location.path().split('#')[0]);
-      window.location.reload();
-    }
+  checkTable(path: boolean): void{
+    var table = localStorage.getItem("table") || "0";
+    if(table == "0" && path)
+      window.location.href = "/";
+    if(table != "0" && !path)
+      window.location.href = "/home";
   }
   
-  isNotInHome(): boolean{
-    return (window.location.pathname != "/");
-  }
-  
-  openTableList(){
-    if(this.tableMsg == "Choose a Table:"){
-      var tables = this.tableList.open(TableListComponent);
-      tables.afterClosed().subscribe(myTable => {
-        localStorage.setItem("table", myTable)
-        window.location.reload();
-      });
-    }
-    else{
-      var warning = this.warning.open(WarningComponent);
-
-      warning.afterClosed().subscribe(newMsg => {
-        if(newMsg == 'Yes'){
-          var table = parseInt(this.tableMsg.substring(5));
-          var msg = this.tableService.unsit(table);
-          localStorage.setItem("table", "0")
-          window.location.reload();
-        }
-      });
-
-    }
+  isNotInHome(): String{
+    if(window.location.pathname != "/home" )
+      return "normBut";
+    else
+      return "inviBut";
   }
 
+  isNotTable(): String{
+    if(window.location.pathname != "/" )
+      return "topBar";
+    else
+      return "hideBar";
+  }
+
+  callWaiter(): void{
+    var table = parseInt(this.tableMsg);
+    var msg = this.tableService.callWaiter(table);
+    this.notify.open(MsgWindowComponent, {data: msg});
+  }
+
+  private hintElement: HTMLElement | null = null;
+
+  hint(event: MouseEvent, msg: string): void {
+    this.hintElement = this.renderer.createElement('div');
+    const text = this.renderer.createText(msg);
+
+    this.renderer.appendChild(this.hintElement, text);
+    this.renderer.addClass(this.hintElement, 'hint');
+
+    const target = event.target as HTMLElement;
+    const rect = target.getBoundingClientRect();
+    this.renderer.setStyle(this.hintElement, 'top', `${rect.bottom + window.scrollY}px`);
+    this.renderer.setStyle(this.hintElement, 'left', `${rect.left + window.scrollX}px`);
+    this.renderer.appendChild(document.body, this.hintElement);
+  }
+
+  removeHint(): void {
+    if (this.hintElement) {
+      this.renderer.removeChild(document.body, this.hintElement);
+      this.hintElement = null;
+    }
+  }
   
 }

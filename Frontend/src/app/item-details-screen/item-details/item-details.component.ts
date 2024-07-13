@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { DetailsComponent } from '../details/details.component';
 import { PhotoComponent } from '../../tools/photo/photo.component';
 import { DescComponent } from '../../tools/desc.component';
-import { BackComponent } from '../../tools/backButton/back.component';
 import { TextComService } from '../../tools/communicators/text-com.service';
 import { NumComService } from '../../tools/communicators/num-com.service';
 import { Orders } from '../../variables/orders/orders';
@@ -16,7 +15,7 @@ import { GlobalVariablesService } from '../../tools/global-variables.service';
 @Component({
   selector: 'app-item-details',
   standalone: true,
-  imports: [CommonModule, DetailsComponent, PhotoComponent, DescComponent, BackComponent, RouterModule],
+  imports: [CommonModule, DetailsComponent, PhotoComponent, DescComponent, RouterModule],
   templateUrl: './item-details.component.html',
   styleUrl: './item-details.component.css'
 })

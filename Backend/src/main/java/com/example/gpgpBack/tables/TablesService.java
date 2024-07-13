@@ -50,31 +50,32 @@ public class TablesService {
         
     }
 
-    @Transactional
-    public void tablePaid(Long table_Number){
+    // @Transactional
+    // public void tablePaid(Long table_Number){
         
-        Tables table = tablesRepository.findById(table_Number).orElseThrow(() -> new IllegalStateException("Doesnt Exist"));
+    //     Tables table = tablesRepository.findById(table_Number).orElseThrow(() -> new IllegalStateException("Doesnt Exist"));
         
-        if(table.isFinished()){
-            table.setFinished(false);
-            table.setOccupied(false);
-            table.setPayment("Cash");
-            table.setWaiter_Called(false);
-            this.orderRepository.deleteTableOrder(table_Number);
-        }
+    //     if(table.isFinished()){
+    //         table.setFinished(false);
+    //         table.setOccupied(false);
+    //         table.setPayment("Cash");
+    //         table.setWaiter_Called(false);
+    //         this.orderRepository.deleteTableOrder(table_Number);
+    //     }
         
-    }
+    // }
 
 
     @Transactional
     public void callWaiter(Long table_Number){
         
         Tables table = tablesRepository.findById(table_Number).orElseThrow(() -> new IllegalStateException("Doesnt Exist"));
+        table.setWaiter_Called(true);
         
-        if(!tablesRepository.isWaiterCalled(table_Number))
-            table.setWaiter_Called(true);
-        else
-            table.setWaiter_Called(false);
+        // if(tablesRepository.isWaiterCalled(table_Number))
+        //     table.setWaiter_Called(false);
+        // else
+        //     table.setWaiter_Called(true);
         
         
     }
@@ -97,5 +98,15 @@ public class TablesService {
         if(payment != null)
             table.setPayment(payment);
         
+    }
+
+    @Transactional
+    public void peopleLeftTable(Long table_Number){
+
+        Tables table = tablesRepository.findById(table_Number).orElseThrow(() -> new IllegalStateException("Doesnt Exist"));
+        table.setOccupied(false);
+        table.setWaiter_Called(false);
+        table.setFinished(false);
+        table.setPayment("Cash");
     }
 }

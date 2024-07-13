@@ -1,4 +1,4 @@
-<section class="selection">
+<section class="selection" *ngIf="added">
     <div id="selectors">
 
         <button *ngIf="this.added.sizable" class="selector" (click)="select()">Choose Size:</button>

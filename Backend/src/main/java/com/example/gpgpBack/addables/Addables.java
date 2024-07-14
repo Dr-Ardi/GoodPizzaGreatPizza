@@ -12,15 +12,15 @@ import jakarta.persistence.Table;
 public class Addables {
     @Id
     @SequenceGenerator(
-        name="add_seq",
-        sequenceName = "add_seq",
+        name="addables_seq",
+        sequenceName = "addables_seq",
         allocationSize = 1
     )
     @GeneratedValue(
         strategy = GenerationType.SEQUENCE,
-        generator = "add_seq"
+        generator = "addables_seq"
     )
-
+    private Long id;
     private String item_Type;
     private boolean sizable;
     private boolean meats;
@@ -40,6 +40,25 @@ public class Addables {
         this.sauces = sauces;
         this.extras = extras;
         this.removables = removables;
+    }
+
+    public Addables(Long id, String item_Type, boolean sizable, boolean meats, boolean cheeses, boolean sauces, boolean extras, boolean removables) {
+        this.id = id;
+        this.item_Type = item_Type;
+        this.sizable = sizable;
+        this.meats = meats;
+        this.cheeses = cheeses;
+        this.sauces = sauces;
+        this.extras = extras;
+        this.removables = removables;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {    
+        this.id = id;
     }
 
     public String getItem_Type() {

@@ -15,7 +15,7 @@
     <app-details [item]="item"></app-details>
 
     <div class="end">
-        <button class="adder" (click)="addToOrder()">Add to Order</button>
+        <button class="adder" (click)="addToOrder()" appBackButton>Add to Order</button>
         <button class="checker"[routerLink]="['/order']" >Check Order</button>
     </div>
 </section>

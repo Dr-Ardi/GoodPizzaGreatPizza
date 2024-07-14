@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { TableService } from '../variables/tables/table.service';
@@ -14,14 +14,13 @@ import { OrderService } from '../variables/orders/order.service';
   templateUrl:'./home-screen.component.html',
   styleUrl: './home-screen.component.css'
 })
-export class HomeScreenComponent implements OnInit{
+export class HomeScreenComponent{
 
-  table: any = localStorage.getItem("table") || 0;
+  table: any = localStorage.getItem("table") || "0";
 
-  constructor(private tableService: TableService, private orderService: OrderService, private warning: MatDialog, private location: Location){}
-
-  ngOnInit(): void {
-  }
+  constructor(private tableService: TableService, 
+              private orderService: OrderService, 
+              private warning: MatDialog){}
 
   leaveTable(): void{
     var warning = this.warning.open(WarningComponent);
@@ -29,7 +28,7 @@ export class HomeScreenComponent implements OnInit{
     warning.afterClosed().subscribe(newMsg => {
       if(newMsg == 'Yes'){
         this.tableService.unsit(this.table);
-        var rep = this.tableService.leaveTable(this.table);
+        this.tableService.leaveTable(this.table);
         this.orderService.deleteOrders(this.table).subscribe(
           response => {
             console.log('Order deleted successfully', response);

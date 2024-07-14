@@ -6,19 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.gpgpBack.order.OrderRepository;
 
 
 @Service
 public class TablesService {
     
     private final TablesRepository tablesRepository;
-    private final OrderRepository orderRepository;
 
     @Autowired
-    public TablesService(TablesRepository tablesRepository, OrderRepository orderRepository) {
+    public TablesService(TablesRepository tablesRepository) {
         this.tablesRepository = tablesRepository;
-        this.orderRepository = orderRepository;
         
     }
     

@@ -1,4 +1,5 @@
 export interface Addables{
+    id: number;
     type: String;
     sizable: boolean;
     meats: boolean;

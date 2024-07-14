@@ -2,8 +2,6 @@ import { Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialogRef } from '@angular/material/dialog';
 import { TextComService } from '../communicators/text-com.service';
-import { IngredientService } from '../../variables/ingredients/ingredient.service';
-import { AddedService } from '../../variables/added/added.service';
 import { FormsModule } from '@angular/forms';
 import { GlobalVariablesService } from '../global-variables.service';
 
@@ -20,8 +18,7 @@ export class ChoicesComponent implements OnInit {
     msg: string = "Add Ingredients";
 
     constructor(private window:MatDialogRef<ChoicesComponent>, private selectCom: TextComService, 
-                private global: GlobalVariablesService, private ingredientService: IngredientService,
-                private addedService: AddedService){}
+                private global: GlobalVariablesService){}
     
     ngOnInit(): void {
         this.selectCom.msg.subscribe((data) => {

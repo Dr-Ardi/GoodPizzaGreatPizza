@@ -11,11 +11,12 @@ import { NumComService } from '../../tools/communicators/num-com.service';
 import { Orders } from '../../variables/orders/orders';
 import { OrderService } from '../../variables/orders/order.service';
 import { GlobalVariablesService } from '../../tools/global-variables.service';
+import { BackButtonDirective } from '../../tools/backButton/back-button.directive';
 
 @Component({
   selector: 'app-item-details',
   standalone: true,
-  imports: [CommonModule, DetailsComponent, PhotoComponent, DescComponent, RouterModule],
+  imports: [CommonModule, DetailsComponent, PhotoComponent, DescComponent, RouterModule, BackButtonDirective],
   templateUrl: './item-details.component.html',
   styleUrl: './item-details.component.css'
 })
@@ -59,7 +60,7 @@ export class ItemDetailsComponent implements OnInit {
     
     var msg = this.orderService.addToOrder(order) ;
     localStorage.setItem("defaultSize", "");
-    window.location.reload();
+    
   }
 
 }

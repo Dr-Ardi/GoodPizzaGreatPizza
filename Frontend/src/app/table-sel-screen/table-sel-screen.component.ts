@@ -16,8 +16,7 @@ export class TableSelScreenComponent {
 
   table: any = localStorage.getItem("table") || "0";
 
-  constructor(private tableList:MatDialog,
-              private location: Location, private tableService: TableService){}
+  constructor(private tableList:MatDialog, private location: Location, private tableService: TableService){}
 
   ngOnInit(): void {
     this.openedThroughLink();
@@ -32,7 +31,7 @@ export class TableSelScreenComponent {
     }
   }
     
-   openTableList(){
+  openTableList(){
     var tables = this.tableList.open(TableListComponent);
     tables.afterClosed().subscribe(myTable => {
       if(myTable != "0"){

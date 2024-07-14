@@ -19,46 +19,38 @@ import { MsgWindowComponent } from './tools/msgWindow.component';
 export class AppComponent implements OnInit{
 
   title = 'Good Pizza Great Pizza';
-
   tableMsg: any = localStorage.getItem("table");
-
   table!: any;
   
   constructor(private tableService: TableService, private notify: MatDialog, private renderer: Renderer2){}
 
   ngOnInit(): void {
 
-    if(this.tableMsg == "0"){
-      this.checkTable(window.location.pathname != "/");
+    if(this.tableMsg === "0"){
+      this.checkTable(window.location.pathname !== "/");
     }
     else{
-      this.checkTable(window.location.pathname != "/");
+      this.checkTable(window.location.pathname !== "/");
       var table = parseInt(this.tableMsg);
       this.table = "Table " + this.tableMsg;
-      var msg = this.tableService.sit(table);
+      this.tableService.sit(table);
     }
   }
 
   checkTable(path: boolean): void{
     var table = localStorage.getItem("table") || "0";
-    if(table == "0" && path)
+    if(table === "0" && path)
       window.location.href = "/";
-    if(table != "0" && !path)
+    if(table !== "0" && !path)
       window.location.href = "/home";
   }
   
   isNotInHome(): String{
-    if(window.location.pathname != "/home" )
-      return "normBut";
-    else
-      return "inviBut";
+    return window.location.pathname !== '/home' ? 'normBut' : 'inviBut';
   }
 
   isNotTable(): String{
-    if(window.location.pathname != "/" )
-      return "topBar";
-    else
-      return "hideBar";
+    return window.location.pathname !== '/' ? 'topBar' : 'hideBar';
   }
 
   callWaiter(): void{

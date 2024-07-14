@@ -32,6 +32,12 @@ public class Item {
     }
     
 
+    public Item(String type, String name, int priority, double price) {
+        this.type = type;
+        this.name = name;
+        this.priority = priority;
+        this.price = price;
+    }
 
     public Item(Long id, String type, String name, int priority, double price) {
         this.id = id;

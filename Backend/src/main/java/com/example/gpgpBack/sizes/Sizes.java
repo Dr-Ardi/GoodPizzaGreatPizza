@@ -31,6 +31,13 @@ public class Sizes {
     public Sizes() {
     }
 
+
+    public Sizes(String item_Type, String item_Size, double added_Cost) {
+        this.item_Type = item_Type;
+        this.item_Size = item_Size;
+        this.added_Cost = added_Cost;
+    }
+
     public Sizes(Long id, String item_Type, String item_Size, double added_Cost) {
         this.id = id;
         this.item_Type = item_Type;

@@ -30,6 +30,11 @@ public class Added {
     public Added() {
     }
 
+    public Added(String add_Type, String added_Item, double added_Price) {
+        this.add_Type = add_Type;
+        this.added_Item = added_Item;
+        this.added_Price = added_Price;
+    }
 
     public Added(Long id, String add_Type, String added_Item, double added_Price) {
         this.id = id;

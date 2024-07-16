@@ -19,7 +19,7 @@ export class SizeSelectComponent implements OnInit, OnChanges {
     chosen!: Size;
     type!: string;
 
-    default: any = localStorage.getItem("defaultSize");
+    default: any = "1";
 
     constructor(private window:MatDialogRef<SizeSelectComponent>, private typeCom: TextComService,
                 private sizeService: SizeService){}
@@ -46,7 +46,14 @@ export class SizeSelectComponent implements OnInit, OnChanges {
         return false;
     }
     getSizesByType(type: string): void{
-        this.sizeService.getSizesByType(type).subscribe(sizes => this.choices = sizes);
+        this.sizeService.getSizesByType(type).subscribe(sizes => {
+            this.choices = sizes
+            sizes.forEach(size =>{
+                if (size.added_Cost == 0)
+                    this.default = size.id.toString();
+            })
+        });
+        this.typeCom.sendSize("");
     }
 
     showChoices(choice: Size): string{
@@ -61,7 +68,7 @@ export class SizeSelectComponent implements OnInit, OnChanges {
     selectSize(choice: Size): void{
         this.chosen = choice;
         this.typeCom.sendSize(choice.item_Size);
-        localStorage.setItem("defaultSize", choice.id.toString());
+        //clear after each order
     }
 }
 

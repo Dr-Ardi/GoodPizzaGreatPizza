@@ -37,6 +37,19 @@ public class Order {
     public Order() {
     }
 
+    public Order(int table_Number, int priority, String item_Name, String extra, String included, String excluded, int quantity, boolean ordered, double order_Cost, String size) {
+        this.table_Number = table_Number;
+        this.priority = priority;
+        this.item_Name = item_Name;
+        this.extra = extra;
+        this.included = included;
+        this.excluded = excluded;
+        this.quantity = quantity;
+        this.ordered = ordered;
+        this.order_Cost = order_Cost;
+        this.size = size;
+    }
+
     public Order(Long id, int table_Number, int priority, String item_Name, String extra, String included, String excluded, int quantity, boolean ordered, double order_Cost, String size) {
         this.table_Number = table_Number;
         this.priority = priority;

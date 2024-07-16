@@ -47,33 +47,11 @@ public class TablesService {
         
     }
 
-    // @Transactional
-    // public void tablePaid(Long table_Number){
-        
-    //     Tables table = tablesRepository.findById(table_Number).orElseThrow(() -> new IllegalStateException("Doesnt Exist"));
-        
-    //     if(table.isFinished()){
-    //         table.setFinished(false);
-    //         table.setOccupied(false);
-    //         table.setPayment("Cash");
-    //         table.setWaiter_Called(false);
-    //         this.orderRepository.deleteTableOrder(table_Number);
-    //     }
-        
-    // }
-
-
     @Transactional
     public void callWaiter(Long table_Number){
         
         Tables table = tablesRepository.findById(table_Number).orElseThrow(() -> new IllegalStateException("Doesnt Exist"));
-        table.setWaiter_Called(true);
-        
-        // if(tablesRepository.isWaiterCalled(table_Number))
-        //     table.setWaiter_Called(false);
-        // else
-        //     table.setWaiter_Called(true);
-        
+        table.setWaiter_Called(true); 
         
     }
 

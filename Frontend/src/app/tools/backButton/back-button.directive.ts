@@ -11,6 +11,5 @@ export class BackButtonDirective {
   @HostListener('click')
   onClick() {
       this.location.back();
-      localStorage.setItem("defaultSize", "1");
   }
 }

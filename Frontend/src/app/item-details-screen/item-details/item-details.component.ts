@@ -58,7 +58,7 @@ export class ItemDetailsComponent implements OnInit {
       "excluded": this.global.getExcludes(), "quantity": this.quantity, "ordered": false, 
       "order_Cost": this.finalPrice, "size": this.size};
     
-    var msg = this.orderService.addToOrder(order) ;
+    this.orderService.addToOrder(order) ;
     localStorage.setItem("defaultSize", "");
     
   }

@@ -30,6 +30,11 @@ public class Ingredient {
     public Ingredient() {
     }
 
+    public Ingredient(int item_Id, String ingredient_Name) {
+        this.item_Id = item_Id;
+        this.ingredient_Name = ingredient_Name;
+    }
+
     public Ingredient(Long id, int item_Id, String ingredient_Name) {
         this.id = id;
         this.item_Id = item_Id;

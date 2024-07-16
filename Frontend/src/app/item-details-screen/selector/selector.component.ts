@@ -47,20 +47,22 @@ export class SelectorComponent implements OnChanges {
 
   setItems(added: Addables): void{
 
-    if(added.meats)
-      this.addedService.getItemsByType("meat").subscribe((meat: Added[]) =>this.global.globalMeats = meat);
-
-    if(added.cheeses)
-      this.addedService.getItemsByType("cheese").subscribe((cheese: Added[]) =>this.global.globalCheese = cheese);
-
-    if(added.sauces)
-      this.addedService.getItemsByType("sauce").subscribe((sauce: Added[]) =>this.global.globalSauce = sauce);
-    
-    if(added.extras)
-      this.addedService.getItemsByType("extra").subscribe((extra: Added[]) =>this.global.globalExtra = extra);
-
-    if(added.removables)
-      this.ingredService.findIngredientsById(this.item.id).subscribe((ingreds: Ingredient[]) => this.global.globalRemoves = ingreds)
+    if(added){
+      if(added.meats)
+        this.addedService.getItemsByType("meat").subscribe((meat: Added[]) =>this.global.globalMeats = meat);
+  
+      if(added.cheeses)
+        this.addedService.getItemsByType("cheese").subscribe((cheese: Added[]) =>this.global.globalCheese = cheese);
+  
+      if(added.sauces)
+        this.addedService.getItemsByType("sauce").subscribe((sauce: Added[]) =>this.global.globalSauce = sauce);
+      
+      if(added.extras)
+        this.addedService.getItemsByType("extra").subscribe((extra: Added[]) =>this.global.globalExtra = extra);
+  
+      if(added.removables)
+        this.ingredService.findIngredientsById(this.item.id).subscribe((ingreds: Ingredient[]) => this.global.globalRemoves = ingreds)
+    }
   }
 
   select(): void{

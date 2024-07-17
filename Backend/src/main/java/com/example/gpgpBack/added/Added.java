@@ -11,15 +11,18 @@ import jakarta.persistence.Table;
 @Table(name="added")
 public class Added {
     @Id
-    @SequenceGenerator(
-        name="added_seq",
-        sequenceName = "added_seq",
-        allocationSize = 1
-    )
     @GeneratedValue(
-        strategy = GenerationType.SEQUENCE,
-        generator = "added_seq"
+        strategy = GenerationType.IDENTITY
     )
+    // @SequenceGenerator(
+    //     name="added_seq",
+    //     sequenceName = "added_seq",
+    //     allocationSize = 1
+    // )
+    // @GeneratedValue(
+    //     strategy = GenerationType.SEQUENCE,
+    //     generator = "added_seq"
+    // )
 
     private Long id;
     private String add_Type;

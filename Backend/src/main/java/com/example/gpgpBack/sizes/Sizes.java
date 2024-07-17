@@ -12,15 +12,18 @@ import jakarta.persistence.Table;
 public class Sizes {
     
     @Id
-    @SequenceGenerator(
-            name = "sizes_seq",
-            sequenceName = "sizes_seq",
-            allocationSize = 1
-    )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "sizes_seq"
+        strategy = GenerationType.IDENTITY
     )
+    // @SequenceGenerator(
+    //         name = "sizes_seq",
+    //         sequenceName = "sizes_seq",
+    //         allocationSize = 1
+    // )
+    // @GeneratedValue(
+    //         strategy = GenerationType.SEQUENCE,
+    //         generator = "sizes_seq"
+    // )
 
     private Long id;
     private String item_Type;

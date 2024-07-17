@@ -12,15 +12,18 @@ import jakarta.persistence.Table;
 public class Tables {
     
     @Id
-    @SequenceGenerator(
-        name="rest_seq",
-        sequenceName = "rest_seq",
-        allocationSize = 1
-    )
     @GeneratedValue(
-        strategy = GenerationType.SEQUENCE,
-        generator = "rest_seq"
+        strategy = GenerationType.IDENTITY
     )
+    // @SequenceGenerator(
+    //     name="rest_seq",
+    //     sequenceName = "rest_seq",
+    //     allocationSize = 1
+    // )
+    // @GeneratedValue(
+    //     strategy = GenerationType.SEQUENCE,
+    //     generator = "rest_seq"
+    // )
 
     private Long table_Number;
     private boolean occupied;

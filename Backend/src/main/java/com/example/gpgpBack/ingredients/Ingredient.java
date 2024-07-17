@@ -12,15 +12,18 @@ import jakarta.persistence.Table;
 public class Ingredient {
 
     @Id
-    @SequenceGenerator(
-        name="ingred_seq",
-        sequenceName = "ingred_seq",
-        allocationSize = 1
-    )
     @GeneratedValue(
-        strategy = GenerationType.SEQUENCE,
-        generator = "ingred_seq"
+        strategy = GenerationType.IDENTITY
     )
+    // @SequenceGenerator(
+    //     name="ingred_seq",
+    //     sequenceName = "ingred_seq",
+    //     allocationSize = 1
+    // )
+    // @GeneratedValue(
+    //     strategy = GenerationType.SEQUENCE,
+    //     generator = "ingred_seq"
+    // )
 
     private Long id;
     private int item_Id;

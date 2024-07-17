@@ -12,15 +12,18 @@ import jakarta.persistence.Table;
 public class Order {
     
     @Id
-    @SequenceGenerator(
-        name="order_seq",
-        sequenceName = "order_seq",
-        allocationSize = 1
-    )
     @GeneratedValue(
-        strategy = GenerationType.SEQUENCE,
-        generator = "order_seq"
+        strategy = GenerationType.IDENTITY
     )
+    // @SequenceGenerator(
+    //     name="order_seq",
+    //     sequenceName = "order_seq",
+    //     allocationSize = 1
+    // )
+    // @GeneratedValue(
+    //     strategy = GenerationType.SEQUENCE,
+    //     generator = "order_seq"
+    // )
     
     private Long id;
     private int table_Number;

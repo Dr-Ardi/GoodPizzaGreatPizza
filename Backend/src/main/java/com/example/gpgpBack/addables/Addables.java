@@ -11,15 +11,18 @@ import jakarta.persistence.Table;
 @Table(name="addables")
 public class Addables {
     @Id
-    @SequenceGenerator(
-        name="addables_seq",
-        sequenceName = "addables_seq",
-        allocationSize = 1
-    )
     @GeneratedValue(
-        strategy = GenerationType.SEQUENCE,
-        generator = "addables_seq"
+        strategy = GenerationType.IDENTITY
     )
+    // @SequenceGenerator(
+    //     name="addables_seq",
+    //     sequenceName = "addables_seq",
+    //     allocationSize = 1
+    // )
+    // @GeneratedValue(
+    //     strategy = GenerationType.SEQUENCE,
+    //     generator = "addables_seq"
+    // )
     private Long id;
     private String item_Type;
     private boolean sizable;
